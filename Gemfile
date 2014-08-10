@@ -20,6 +20,6 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'jasmine'
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'faker'
-  gem 'factorygirl'
 end
