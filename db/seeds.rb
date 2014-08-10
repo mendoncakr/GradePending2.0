@@ -13,18 +13,27 @@ CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', heade
 # 		cuisine_code: row["CUISINECODE"]
 # 		)
 # r.save
-restaurant = Restaurant.find_by(phone:phone: row["PHONE"])
-inspection = Inspection.
-if restaurant.phone == 
-Inspection.create(
-	)
+# restaurant = Restaurant.find_by(phone:phone: row["PHONE"])
 
-
-
-
+# i = Inspection.create(
+# 	phone: row["PHONE"],
+# 	inspection_date: row["INSPDATE"],
+# 	action: row["ACTION"],
+# 	violation_code: row["VIOLCODE"],
+# 	score: row["SCORE"],
+# 	current_grade: row["CURRENTGRADE"],
+# 	grade_date: row["GRADEDATE"],
+# 	record_date: row["RECORDDATE"]
+# 	)
 
 end
-
+r = Restaurant.all
+i = Inspection.all 
+r.each do |rest|
+	if rest.phone == i.phone
+		r.inspections << i 
+	end
+end
 
 
 
