@@ -3,36 +3,35 @@ file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
 CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
 	row = row.to_hash
 
-# 	r = Restaurant.new(
-# 		name: row["DBA"],
-# 		boro: row["BORO"],
-# 		building: row["BUILDING"],
-# 		street: row["STREET"],
-# 		zipcode: row["ZIPCODE"],
-# 		phone: row["PHONE"],
-# 		cuisine_code: row["CUISINECODE"]
-# 		)
-# r.save
-# restaurant = Restaurant.find_by(phone:phone: row["PHONE"])
+	r = Restaurant.new(
+		name: row["DBA"],
+		boro: row["BORO"],
+		building: row["BUILDING"],
+		street: row["STREET"],
+		zipcode: row["ZIPCODE"],
+		phone: row["PHONE"],
+		cuisine_code: row["CUISINECODE"]
+		)
+r.save
 
-# i = Inspection.create(
-# 	phone: row["PHONE"],
-# 	inspection_date: row["INSPDATE"],
-# 	action: row["ACTION"],
-# 	violation_code: row["VIOLCODE"],
-# 	score: row["SCORE"],
-# 	current_grade: row["CURRENTGRADE"],
-# 	grade_date: row["GRADEDATE"],
-# 	record_date: row["RECORDDATE"]
-# 	)
+
+i = Inspection.create(
+	phone: row["PHONE"],
+	inspection_date: row["INSPDATE"],
+	action: row["ACTION"],
+	violation_code: row["VIOLCODE"],
+	score: row["SCORE"],
+	current_grade: row["CURRENTGRADE"],
+	grade_date: row["GRADEDATE"],
+	record_date: row["RECORDDATE"]
+	)
 
 end
-r = Restaurant.all
-i = Inspection.all 
-r.each do |rest|
-	if rest.phone == i.phone
-		r.inspections << i 
-	end
+
+i = Inspection.where(restaurant_id: nil)
+i.each do |insp|
+	r = Restaurant.find_by(:phone insp.phone)
+		r.inspections << insp
 end
 
 
