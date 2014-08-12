@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'pg'
+
+#Location Finding
 gem "geocoder"
 gem 'gmaps4rails'
 

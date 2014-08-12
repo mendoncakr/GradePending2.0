@@ -1,7 +1,7 @@
 require 'csv'
-file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
-CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
-	row = row.to_hash
+# file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
+# CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
+# 	row = row.to_hash
 
 # 	r = Restaurant.new(
 # 		name: row["DBA"],
@@ -13,7 +13,7 @@ CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', heade
 # 		cuisine_code: row["CUISINECODE"]
 # 		)
 # r.save
-# restaurant = Restaurant.find_by(phone:phone: row["PHONE"])
+
 
 # i = Inspection.create(
 # 	phone: row["PHONE"],
@@ -26,10 +26,8 @@ CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', heade
 # 	record_date: row["RECORDDATE"]
 # 	)
 
-end
-# r = Restaurant.all
-i = Inspection.where(restaurant_id: nil)
-
+# end
+ 																												
 # r.each do |rest|
 # 	i.each do |insp|
 # 		if rest.phone == insp.phone
@@ -37,10 +35,16 @@ i = Inspection.where(restaurant_id: nil)
 # 		end
 # 	end
 # end
-i.each do |ins|
-	r = Restaurant.find_by(phone: ins.phone)
-	r.inspections << ins
-	p r
+# Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+# 	r = Restaurant.find_by(phone: ins.phone)
+# 	r.inspections << ins
+# 	p r
+# end
+filename = File.open(File.join(Rails.root, 'db', 'lat_long.txt'))
+file = File.open(filename, 'r+') do |f|
+	Restaurant.where.not(latitude: nil).each do |r|
+		f.puts "phone:  #{r.phone} latitude: #{r.latitude} longitude: #{r.longitude}"
+	end
 end
 
 
