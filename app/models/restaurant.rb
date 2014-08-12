@@ -10,8 +10,8 @@ class Restaurant < ActiveRecord::Base
 
   def save_coords
   	coords = Geocoder.coordinates(self.address)
-  	self.coord1 = coords[0]
-  	self.coord2 = coords[1]
+  	self.latitude = coords[0]
+  	self.longitude = coords[1]
   	self.save
   end
 
