@@ -2,11 +2,11 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.where.not(latitude: nil)
     @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
-      # @restaurant_info = restaurant.info
+      @restaurant = restaurant.name
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
-      # marker.infowindow render_to_string(:partial => "/restaurants/info", :locals => { :object => @restaurant_info})
-      # marker.json({:current_grade=> restaurant.currentgrade})
+      marker.infowindow render_to_string(:partial => "/restaurants/info", :locals => { :object => @restaurant})
+      marker.json({:name=> restaurant.name})
     end
   end
 end

@@ -5,6 +5,7 @@ gem 'pg'
 #Location Finding
 gem "geocoder"
 
+#Gmaps4 Rails
 gem 'underscore-rails'
 gem 'gmaps4rails'
 
