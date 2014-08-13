@@ -47,5 +47,9 @@ file = File.open(filename, 'r+') do |f|
 	end
 end
 
+Restaurant.where(latitude: nil).find_each(batch_size: 5000) do |r|
+	r.save_coords
+	sleep(1)
+end
 
 # {"CAMIS"=>"40550262", "DBA"=>"MUG SHOTS", "BORO"=>"5", "BUILDING"=>"3785", "STREET"=>"VICTORY BOULEVARD", "ZIPCODE"=>"10314", "PHONE"=>"7188161610", "CUISINECODE"=>"3", "INSPDATE"=>"1/30/13 0:00", "ACTION"=>"D", "VIOLCODE"=>"10F", "SCORE"=>"5", "CURRENTGRADE"=>"A", "GRADEDATE"=>"1/30/13 0:00", "RECORDDATE"=>"01:10.3"}
