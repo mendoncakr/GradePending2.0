@@ -5,3 +5,6 @@
 		end
 	end
 
+	task :coords1 => :environment do 
+		
+	end
