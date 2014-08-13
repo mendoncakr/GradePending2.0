@@ -1,7 +1,6 @@
 class RestaurantsController < ApplicationController
-<<<<<<< HEAD
   def index
-    @restaurants = Restaurant.first(1000)
+    @restaurants = Restaurant.all
     @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       @restaurant = restaurant.phone
       marker.lat restaurant.latitude
@@ -11,9 +10,4 @@ class RestaurantsController < ApplicationController
     end
   end
 end
-=======
-	def index
-	end
-end
 
->>>>>>> upstream/master
