@@ -4,7 +4,18 @@ gem 'pg'
 
 #Location Finding
 gem "geocoder"
+
+
+#Gmaps4 Rails
+gem 'underscore-rails'
 gem 'gmaps4rails'
+
+
+#Use Thin instead of WEBrick
+gem 'thin'
+
+#Use dotenv for dev/production
+gem 'dotenv-rails', :groups => [:development, :test]
 
 
 gem 'rails', '4.1.4'

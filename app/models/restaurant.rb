@@ -5,7 +5,7 @@ class Restaurant < ActiveRecord::Base
 
 
   def address
-  	"#{self.building} " + "#{self.street} " + "#{self.zipcode}"
+  	"#{self.building} " + "#{self.street.strip} " + "#{self.zipcode}"
   end
 
   def save_coords
