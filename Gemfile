@@ -5,6 +5,8 @@ gem 'pg'
 #Location Finding
 gem "geocoder"
 
+#SODA JSON
+gem 'soda-ruby', :require=> 'soda'
 
 #Gmaps4 Rails
 gem 'underscore-rails'
