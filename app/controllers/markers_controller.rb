@@ -3,7 +3,7 @@ class MarkersController < ApplicationController
 	end
 	
 	def markers
-		render json: { restaurants: Restaurant.all.pluck(:latitude, :longitude)}.to_json
+		render json: { restaurants: Restaurant.manhattan.pluck(:name, :latitude, :longitude)}.to_json
 	end
 
 end
