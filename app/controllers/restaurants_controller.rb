@@ -7,7 +7,9 @@ class RestaurantsController < ApplicationController
   end
 
   def search 
-    Restaurant.
+   result = Restaurant.search(params["search"].upcase)
+   p result
+   redirect_to root_path
   end
 end
 
