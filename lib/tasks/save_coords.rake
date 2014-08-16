@@ -25,3 +25,11 @@
 			r.fix_name
 		end
 	end
+
+	task :save_csv => :environment do 
+		CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
+			Restaurant.where.not(latitude: nil).each do |r|
+				f << ["#{r.id}", "#{r.name.strip}","#{r.latitude}", "#{r.longitude}"]
+			end
+		end
+	end
