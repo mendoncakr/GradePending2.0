@@ -1,6 +1,10 @@
 class RestaurantsController < ApplicationController
   def index
-  end
+    respond_to do |format|
+        format.html
+        format.json {render json: Restaurant.all.pluck(:name)}
+    end
+end
 
   def show
     @restaurant = Restaurant.find(params[:id])
