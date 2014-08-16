@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'pg'
 
 #Location Finding
@@ -12,6 +13,8 @@ gem 'soda-ruby', :require=> 'soda'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 
+#Jquery UI
+gem 'jquery-ui-rails'
 
 #Use Thin instead of WEBrick
 gem 'thin'
