@@ -39,10 +39,11 @@ require 'csv'
 # 	r.inspections << ins
 # 	p r
 # end
-filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
-file = File.open(filename, 'r+') do |f|
+
+filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
+CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
 	Restaurant.where.not(latitude: nil).each do |r|
-		f.puts "phone:  #{r.phone} latitude: #{r.latitude} longitude: #{r.longitude}"
+		f << ["#{r.id}", "#{r.name.strip}","#{r.latitude}", "#{r.longitude}"]
 	end
 end
 
