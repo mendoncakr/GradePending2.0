@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'pg'
 
 #Location Finding
@@ -12,6 +13,8 @@ gem 'soda-ruby', :require=> 'soda'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 
+#Jquery UI
+gem 'jquery-ui-rails'
 
 #Use Thin instead of WEBrick
 gem 'thin'
@@ -32,6 +35,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
 
 group :test do
   gem 'shoulda-matchers', require: false

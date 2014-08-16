@@ -47,6 +47,20 @@ end
 # 	end
 # end
 
+# Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+# 	r = Restaurant.find_by(phone: ins.phone)
+# 	r.inspections << ins
+# 	p r
+# end
+
+filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
+CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
+	Restaurant.where.not(latitude: nil).each do |r|
+		f << ["#{r.id}", "#{r.name.strip}","#{r.latitude}", "#{r.longitude}"]
+	end
+end
+
+
 
 # ADD Coordinates to DB:
 
