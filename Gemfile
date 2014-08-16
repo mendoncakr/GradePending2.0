@@ -34,6 +34,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
+
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'jasmine'
