@@ -27,20 +27,18 @@ require 'csv'
 # 	)
 # end
  																												
-# r.each do |rest|
-# 	i.each do |insp|
-# 		if rest.phone == insp.phone
-# 			rest.inspections << insp
-# 		end
-# 	end
-# end
+
+# Add inspections to their respective restaurants
 counter = 0
 Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+	p ins.phone
 	r = Restaurant.find_by(phone: ins.phone)
 	r.inspections << ins
 	p counter
 	counter += 1
 end
+
+#Write coords to new file 
 
 # filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
 # file = File.open(filename, 'r+') do |f|
@@ -51,6 +49,7 @@ end
 
 
 # ADD Coordinates to DB:
+
 # filename = File.open(File.join(Rails.root, 'db', 'lat_long.csv'))
 # filename.each do |row|
 # 	p row.split[1]
