@@ -7,9 +7,12 @@ class RestaurantsController < ApplicationController
   end
 
   def search 
-   result = Restaurant.search(params["search"].upcase)
-   p result
-   redirect_to root_path
+    if params["search"]
+     result = Restaurant.search(params["search"].upcase)
+     p result
+     redirect_to root_path
+    end
+  
   end
 end
 
