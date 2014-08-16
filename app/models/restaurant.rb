@@ -24,4 +24,9 @@ class Restaurant < ActiveRecord::Base
   def self.search(params)
     where("name like ?", "#{params}")
   end
+
+  def fix_name
+    self.name = self.name.gsub /&amp;/, "&"
+    self.save
+  end
 end

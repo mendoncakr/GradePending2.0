@@ -17,8 +17,10 @@ RSpec.describe Restaurant, :type => :model do
 	context '#name'
 
 		it "replaces &amp;" do 
-			@restaurant = FactoryGirl.build(:restaurant, name: "Joe's Pizza &amp; Shakes")
-			expect (@restaurant.fix_name).to eq "Joe's Pizza & Shakes"
+			restaurant = FactoryGirl.build(:restaurant, name: "Joe's Pizza &amp; Shakes")
+			restaurant.fix_name
+			new_restaurant = restaurant
+			expect(new_restaurant.name).to eq "Joe's Pizza & Shakes"
 		end
 
 

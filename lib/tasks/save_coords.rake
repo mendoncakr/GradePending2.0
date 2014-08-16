@@ -13,3 +13,15 @@
 			end
 		end
 	end
+
+	task :fix_names => :environment do 
+		r = Restaurant.all.pluck(:name)
+		s= []
+		s = r.grep(/&amp;/)
+		p s
+		s.reject &:empty?
+		s.each do |re|
+			r = Restaurant.find_by(name: re)
+			r.fix_name
+		end
+	end
