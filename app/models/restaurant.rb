@@ -29,4 +29,34 @@ class Restaurant < ActiveRecord::Base
     self.name = self.name.gsub /&amp;/, "&"
     self.save
   end
+
+  def restaurant_name
+    {term: self.name}
+  end
+
+  def borough
+    case self.boro
+    when "1"
+      return "Manhattan"
+    when "2"
+      return "The Bronx"
+    when "3"
+      return "Brooklyn"
+    when "4"
+      return "Queens"
+    when "5"
+      return "Staten Island"
+    end
+  end
+
+  def yelp_biz_id
+    response = Yelp.client.search(self.borough, self.restaurant_name)
+    response.businesses[0].id
+  end
+
+  def top_yelp_review(yelp_biz_id)
+    response = Yelp.client.business(yelp_biz_id)
+    response.reviews.first.excerpt
+  end
+
 end
