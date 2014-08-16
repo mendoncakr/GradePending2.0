@@ -20,4 +20,8 @@ class Restaurant < ActiveRecord::Base
   def current_grade
     Inspection.where(restaurant_id: self.id).order(grade_date: :asc).first.current_grade
   end
+
+  def self.search(params)
+    where("name like ?", "#{params}")
+  end
 end
