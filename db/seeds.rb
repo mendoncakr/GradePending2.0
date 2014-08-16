@@ -34,17 +34,20 @@ require 'csv'
 # 		end
 # 	end
 # end
-# Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
-# 	r = Restaurant.find_by(phone: ins.phone)
-# 	r.inspections << ins
-# 	p r
-# end
-filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
-file = File.open(filename, 'r+') do |f|
-	Restaurant.where.not(latitude: nil).each do |r|
-		f.puts "phone:  #{r.phone} latitude: #{r.latitude} longitude: #{r.longitude}"
-	end
+counter = 0
+Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+	r = Restaurant.find_by(phone: ins.phone)
+	r.inspections << ins
+	p counter
+	counter += 1
 end
+
+# filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
+# file = File.open(filename, 'r+') do |f|
+# 	Restaurant.where.not(latitude: nil).each do |r|
+# 		f.puts "phone:  #{r.phone} latitude: #{r.latitude} longitude: #{r.longitude}"
+# 	end
+# end
 
 
 # ADD Coordinates to DB:
