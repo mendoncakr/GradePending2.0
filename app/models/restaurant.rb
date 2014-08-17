@@ -75,7 +75,11 @@ class Restaurant < ActiveRecord::Base
 
   def yelp_biz_id
     @response ||= Yelp.client.search(self.borough, self.restaurant_name)
-    @response.businesses[0].id
+    if  @response.businesses[0] != nil
+      return @response.businesses[0].id 
+    else
+      return -99999999
+    end
   end
 
 
