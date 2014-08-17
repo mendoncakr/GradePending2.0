@@ -7,7 +7,7 @@ class Restaurant < ActiveRecord::Base
 
 
   def address
-  	"#{self.building} " + "#{self.street.strip} " + "#{self.zipcode}"
+  	"#{self.building} " + "#{self.street.strip} "+ "#{self.borough} " + "#{self.zipcode}"
   end
 
   def save_coords
@@ -49,14 +49,34 @@ class Restaurant < ActiveRecord::Base
     end
   end
 
+
+  # Yelp reviews
+  def top_yelp_review
+    response = Yelp.client.business(self.yelp_biz_id)
+    response.reviews.first.excerpt
+  end
+
+  def yelp_review_user
+    response = Yelp.client.business(self.yelp_biz_id)
+    response.reviews.first.user.name
+  end
+
+  def yelp_review_user_image
+    response = Yelp.client.business(self.yelp_biz_id)
+    response.reviews.first.user.image_url
+
+  end
+
+  def yelp_review_rating_url
+    response = Yelp.client.business(self.yelp_biz_id)
+    response.reviews.first.rating_image_large_url
+
+  end
+
   def yelp_biz_id
     response = Yelp.client.search(self.borough, self.restaurant_name)
     response.businesses[0].id
   end
 
-  def top_yelp_review(yelp_biz_id)
-    response = Yelp.client.business(yelp_biz_id)
-    response.reviews.first.excerpt
-  end
 
 end
