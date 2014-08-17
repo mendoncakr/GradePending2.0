@@ -40,10 +40,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
 
+
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'jasmine'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'vcr'
+	gem 'webmock'
 end
