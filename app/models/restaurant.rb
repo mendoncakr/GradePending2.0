@@ -73,7 +73,7 @@ end
 
   def yelp_biz_id
     @client_response ||= Yelp.client.search(self.borough, self.restaurant_name)
-    if @client_response.businesses[0] != nil
+    unless @client_response.businesses[0] == nil
       return @client_response.businesses[0].id 
     else
       return -99999999
