@@ -64,19 +64,17 @@ class Restaurant < ActiveRecord::Base
   def yelp_review_user_image
     @response ||= Yelp.client.business(self.yelp_biz_id)
     @response.reviews.first.user.image_url
-
-  end
+end
 
   def yelp_review_rating_url
     @response ||= Yelp.client.business(self.yelp_biz_id)
     @response.reviews.first.rating_image_large_url
-
-  end
+end
 
   def yelp_biz_id
-    @response ||= Yelp.client.search(self.borough, self.restaurant_name)
-    if  @response.businesses[0] != nil
-      return @response.businesses[0].id 
+    @client_response ||= Yelp.client.search(self.borough, self.restaurant_name)
+    if @client_response.businesses[0] != nil
+      return @client_response.businesses[0].id 
     else
       return -99999999
     end
