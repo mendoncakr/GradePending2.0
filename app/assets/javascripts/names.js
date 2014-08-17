@@ -3,7 +3,3 @@ var namesAjax = function() {
 			$('#search').autocomplete({source: response})
 		});
 }
-
-$(function() {
-	namesAjax();
-})
