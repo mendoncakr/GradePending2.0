@@ -22,6 +22,8 @@ gem 'thin'
 #Use dotenv for dev/production
 gem 'dotenv-rails', :groups => [:development, :test]
 
+#YELP gem
+gem 'yelp', require: 'yelp'
 
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'

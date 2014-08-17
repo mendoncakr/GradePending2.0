@@ -27,5 +27,11 @@ RSpec.describe Restaurant, :type => :model do
 			expect(new_restaurant.name).to eq "Joe's Pizza & Shakes"
 		end
 
+	context '#Yelp'
+
+	# it "retrieves first 5 reviews" do
+	# 	restaurant = FactoryGirl.build(:restaurant)
+		
+	# end
 
 end

@@ -6,3 +6,13 @@
 <p>Addres: <%= @restaurant.address %>
 <p><%= @restaurant.zipcode.to_i %>
 <p>Phone: <%= @restaurant.phone.to_i %>
+
+<div class="yelp_review">
+	<img id="user_photo" src="<%= @restaurant.yelp_review_user_image %>">
+	<br>
+	<img  src="<%= @restaurant.yelp_review_rating_url %>">
+	<p><%= @restaurant.yelp_review_user %> says....</p>
+	<p><%= @restaurant.top_yelp_review %></p>
+	<img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/3049d7633b6e/developers/reviewsFromYelpRED.gif">
+
+</div>
