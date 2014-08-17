@@ -52,24 +52,24 @@ class Restaurant < ActiveRecord::Base
 
   # Yelp reviews
   def top_yelp_review
-    response = Yelp.client.business(self.yelp_biz_id)
-    response.reviews.first.excerpt
+    @response  ||= Yelp.client.business(self.yelp_biz_id)
+    @response.reviews.first.excerpt
   end
 
   def yelp_review_user
-    response = Yelp.client.business(self.yelp_biz_id)
-    response.reviews.first.user.name
+    @response ||= Yelp.client.business(self.yelp_biz_id)
+    @response.reviews.first.user.name
   end
 
   def yelp_review_user_image
-    response = Yelp.client.business(self.yelp_biz_id)
-    response.reviews.first.user.image_url
+    @response ||= Yelp.client.business(self.yelp_biz_id)
+    @response.reviews.first.user.image_url
 
   end
 
   def yelp_review_rating_url
-    response = Yelp.client.business(self.yelp_biz_id)
-    response.reviews.first.rating_image_large_url
+    @response ||= Yelp.client.business(self.yelp_biz_id)
+    @response.reviews.first.rating_image_large_url
 
   end
 
