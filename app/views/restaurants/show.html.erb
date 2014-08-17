@@ -8,7 +8,7 @@
 <p>Phone: <%= @restaurant.phone.to_i %>
 
 <div class="yelp_review">
-	<% if @restaurant.yelp_biz_id != -99999999 %>
+	<% unless @restaurant.yelp_biz_id == -99999999 %>
 		<img id="user_photo" src="<%= @restaurant.yelp_review_user_image %>">
 		<br>
 		<img  src="<%= @restaurant.yelp_review_rating_url %>">
