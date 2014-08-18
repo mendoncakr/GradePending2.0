@@ -1,0 +1,384 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.yelp.com/v2/search?location=Manhattan&term=GRAMERCY%20TAVERN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Authorization:
+      - OAuth oauth_consumer_key="8d5rzOY2qOHt1lJbWZMb-A", oauth_nonce="e0edd8be4cbbf7d99db21000bdce9b66",
+        oauth_signature="fucAVeMKMfjwyPVYFHLgx5zDpuo%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1408300268", oauth_token="eM7bh_NVDqxXSkjR4LVlsxwqMECMiAU3",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 17 Aug 2014 18:31:08 GMT
+      Server:
+      - Apache
+      X-Node:
+      - web26-r5-sfo2, api_com
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - bse=9616bdbcd1ce3f9a162c970aef349fd6; Domain=.yelp.com; Path=/; HttpOnly
+      - yuv=Xr3jbiItBIYKfOgSfntLyr5dlfU9tE4beDw5blJXdSrVv2k1fPCxnX39JQUhjG0UbwO1WThVJFWmYbeO6SafidW7zZmW6ZuX;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Sat, 12-Aug-2034 18:31:08
+        GMT
+      Content-Length:
+      - '30150'
+      Vary:
+      - User-Agent
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Mode:
+      - rw
+      X-Proxied:
+      - extlb2-r5-sfo2
+      - lb1
+    body:
+      encoding: UTF-8
+      string: '{"region": {"span": {"latitude_delta": 0.099401169999993044, "longitude_delta":
+        0.058165359999975408}, "center": {"latitude": 40.728320650000001, "longitude":
+        -73.981249800000001}}, "total": 94, "businesses": [{"is_claimed": true, "rating":
+        4.5, "mobile_url": "http://m.yelp.com/biz/gramercy-tavern-new-york", "rating_img_url":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 1433, "name": "Gramercy Tavern", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/yFUKeS--E8CkErS-1dryoQ/ms.jpg",
+        "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/gramercy-tavern-new-york", "menu_date_updated":
+        1387612529, "phone": "2124770777", "snippet_text": "Pretty expensive, but
+        worth it. Little bit of an older crowd, but worth it. \n\nI''ve only eaten
+        in The tavern area with colleagues, so haven''t tried the fixed...", "image_url":
+        "http://s3-media4.fl.yelpcdn.com/bphoto/uLlperMb2Pp6xGouWw0ccQ/ms.jpg", "categories":
+        [["American (New)", "newamerican"]], "display_phone": "+1-212-477-0777", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "gramercy-tavern-new-york", "is_closed":
+        false, "location": {"cross_streets": "Broadway \u0026 S Park Ave", "city":
+        "New York", "display_address": ["42 E 20th St", "Flatiron", "New York, NY
+        10003"], "geo_accuracy": 9, "neighborhoods": ["Flatiron"], "postal_code":
+        "10003", "country_code": "US", "address": ["42 E 20th St"], "coordinate":
+        {"latitude": 40.738526999999998, "longitude": -73.988416999999998}, "state_code":
+        "NY"}}, {"is_claimed": true, "rating": 4.5, "mobile_url": "http://m.yelp.com/biz/gotham-bar-and-grill-new-york",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 864, "name": "Gotham Bar And Grill", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/wuMoMwknUPKem2fAjOvxDA/ms.jpg", "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/gotham-bar-and-grill-new-york", "menu_date_updated":
+        1372184568, "phone": "2126204020", "snippet_text": "This place has incredible
+        food, drinks, and service. I''d say my only little complaint is it sort of
+        feels like a corporate hotel in its decor, and the...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/kgDFvSYxIYQnRxzt14-GAg/ms.jpg",
+        "categories": [["American (New)", "newamerican"], ["Bars", "bars"]], "display_phone":
+        "+1-212-620-4020", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "yelp", "id": "gotham-bar-and-grill-new-york", "is_closed":
+        false, "location": {"cross_streets": "5th Ave \u0026 University Pl", "city":
+        "New York", "display_address": ["12 E 12th St", "Union Square", "New York,
+        NY 10003"], "geo_accuracy": 9, "neighborhoods": ["Union Square", "Greenwich
+        Village"], "postal_code": "10003", "country_code": "US", "address": ["12 E
+        12th St"], "coordinate": {"latitude": 40.734186000000001, "longitude": -73.993696},
+        "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/union-square-cafe-new-york-3",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 713, "name": "Union Square Cafe", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/4b6mBufFKGZNgOES0MuKug/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/union-square-cafe-new-york-3", "menu_date_updated":
+        1398953656, "phone": "2122434020", "snippet_text": "The amount of food \"smut\"
+        I have for this place is off the charts! I could go on and on and on about
+        how titillating every dish was, but I''d have to take a...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/J6wmVb3nFy_H6Nr-nuamsw/ms.jpg", "categories":
+        [["American (New)", "newamerican"], ["Italian", "italian"], ["Breakfast \u0026
+        Brunch", "breakfast_brunch"]], "display_phone": "+1-212-243-4020", "rating_img_url_large":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "union-square-cafe-new-york-3",
+        "is_closed": false, "location": {"cross_streets": "W Union Sq \u0026 5th Ave",
+        "city": "New York", "display_address": ["21 E 16th St", "Flatiron", "New York,
+        NY 10003"], "neighborhoods": ["Flatiron", "Union Square"], "postal_code":
+        "10003", "country_code": "US", "address": ["21 E 16th St"], "state_code":
+        "NY"}}, {"is_claimed": false, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/minetta-tavern-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 1201, "name": "Minetta Tavern", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/zJsnCnkIvaTIHFVoSezIbw/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/minetta-tavern-new-york", "menu_date_updated":
+        1393648350, "phone": "2124753850", "snippet_text": "I''ve been dining at Minetta
+        for years, and it''s hands down the best restaurant in NYC. \n\nThe food is
+        always incredible (bone marrow, lamb saddle, cote de...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/h5JMdTJDEXbi_d5ML0LJhg/ms.jpg",
+        "categories": [["French", "french"], ["American (New)", "newamerican"], ["Breakfast
+        \u0026 Brunch", "breakfast_brunch"]], "display_phone": "+1-212-475-3850",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "minetta-tavern-new-york", "is_closed":
+        false, "location": {"city": "New York", "display_address": ["113 Macdougal
+        St", "Greenwich Village", "New York, NY 10012"], "neighborhoods": ["Greenwich
+        Village"], "postal_code": "10012", "country_code": "US", "address": ["113
+        Macdougal St"], "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0,
+        "mobile_url": "http://m.yelp.com/biz/giorgios-of-gramercy-new-york", "rating_img_url":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 457, "name": "Giorgio''s of Gramercy", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/QfU2bYL8P9Xq5uKv7T0siw/ms.jpg", "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/giorgios-of-gramercy-new-york", "menu_date_updated":
+        1405534069, "phone": "2124770007", "snippet_text": "Came in for July''s restaurant
+        week menu with a friend from out of town. We didn''t realize the place was
+        formal as we just came back from the Jersey Shore...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/hi5_GGV6UtLBkdfcppyoGg/ms.jpg",
+        "categories": [["Italian", "italian"], ["American (New)", "newamerican"]],
+        "display_phone": "+1-212-477-0007", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "giorgios-of-gramercy-new-york",
+        "is_closed": false, "location": {"city": "New York", "display_address": ["27
+        E 21st St", "Flatiron", "New York, NY 10011"], "geo_accuracy": 9, "neighborhoods":
+        ["Flatiron"], "postal_code": "10011", "country_code": "US", "address": ["27
+        E 21st St"], "coordinate": {"latitude": 40.739420987932498, "longitude": -73.988542556762695},
+        "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/colicchio-and-sons-main-dining-room-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 617, "name": "Colicchio \u0026 Sons Main Dining Room", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/ELT9Kb0pFrr-4uWvpehBwg/ms.jpg", "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/colicchio-and-sons-main-dining-room-new-york",
+        "phone": "2124006699", "snippet_text": "This review is basically for my experience
+        with the staff.  The food was good but my experience was excellent and the
+        reason I would come back.  What...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/kaLmQl8kmS_o8MosjLQCRg/ms.jpg",
+        "categories": [["American (New)", "newamerican"]], "display_phone": "+1-212-400-6699",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "colicchio-and-sons-main-dining-room-new-york", "is_closed": false,
+        "location": {"cross_streets": "Avenue Of The Americas \u0026 5th Ave", "city":
+        "New York", "display_address": ["85 10th Ave", "Meatpacking District", "New
+        York, NY 10011"], "geo_accuracy": 9, "neighborhoods": ["Meatpacking District",
+        "Chelsea"], "postal_code": "10011", "country_code": "US", "address": ["85
+        10th Ave"], "coordinate": {"latitude": 40.743110999999999, "longitude": -74.007685899999998},
+        "state_code": "NY"}}, {"is_claimed": true, "rating": 4.5, "mobile_url": "http://m.yelp.com/biz/eleven-madison-park-new-york",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 1078, "name": "Eleven Madison Park", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/3o9F4F13gJbI1Mz0l-AbcQ/ms.jpg", "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/eleven-madison-park-new-york", "menu_date_updated":
+        1401920464, "phone": "2128890905", "snippet_text": "What a neat experience!
+        \n\nThis is a very hands on dining experience. Our server was fantastic and
+        at the end of dinner he send us away with a breakfast...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/C75RSa3XFj97sSN8XhKkZQ/ms.jpg",
+        "categories": [["American (New)", "newamerican"], ["French", "french"]], "display_phone":
+        "+1-212-889-0905", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "locu", "id": "eleven-madison-park-new-york", "is_closed":
+        false, "location": {"cross_streets": "24th St", "city": "New York", "display_address":
+        ["11 Madison Ave", "Flatiron", "New York, NY 10010"], "geo_accuracy": 9, "neighborhoods":
+        ["Flatiron"], "postal_code": "10010", "country_code": "US", "address": ["11
+        Madison Ave"], "coordinate": {"latitude": 40.741571, "longitude": -73.986553000000001},
+        "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/vitae-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 330, "name": "Vitae", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/VNgDz3FG6K16lJhixrlvJA/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/vitae-new-york", "menu_date_updated": 1403188920,
+        "phone": "2126823562", "snippet_text": "I don''t give many 5 star reviews,
+        for the obvious reason that most places don''t deserve 5 stars -- Vitae stands
+        out as an exception.  We met my a friend...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/jZDu4GSPt5QW-ughoh8iAg/ms.jpg",
+        "categories": [["American (New)", "newamerican"]], "display_phone": "+1-212-682-3562",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "locu", "id": "vitae-new-york", "is_closed": false, "location":
+        {"cross_streets": "5th Ave \u0026 Madison Ave", "city": "New York", "display_address":
+        ["4 E 46th St", "Midtown East", "New York, NY 10017"], "neighborhoods": ["Midtown
+        East"], "postal_code": "10017", "country_code": "US", "address": ["4 E 46th
+        St"], "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url":
+        "http://m.yelp.com/biz/abc-kitchen-new-york", "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 1450, "name": "ABC Kitchen", "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/r5vus34kEfGF_whoKvtIaA/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/abc-kitchen-new-york", "menu_date_updated":
+        1401857438, "phone": "2124755829", "snippet_text": "ABC kitchen deserves a
+        5 for all ambiance, deliciousness \u0026 service. Two of my girlfriends and
+        I went on a rainy day and we had a reservation so there was no...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/YGo_658daPvX9R-UqaWR2g/ms.jpg", "categories":
+        [["American (New)", "newamerican"], ["French", "french"]], "display_phone":
+        "+1-212-475-5829", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "abc-kitchen-new-york", "is_closed":
+        false, "location": {"cross_streets": "Broadway \u0026 S Park Ave", "city":
+        "New York", "display_address": ["35 E 18th St", "Flatiron", "New York, NY
+        10003"], "geo_accuracy": 9, "neighborhoods": ["Flatiron", "Union Square"],
+        "postal_code": "10003", "country_code": "US", "address": ["35 E 18th St"],
+        "coordinate": {"latitude": 40.737698000000002, "longitude": -73.989707999999993},
+        "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/county-new-york-2",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 76, "name": "County", "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/YcbUlfWQduBMNdE9J4C6sg/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/county-new-york-2", "phone": "2126777771",
+        "snippet_text": "County is an incredible restaurant. It could be my bias for
+        seasonal, organic, locally-sourced menus talking, but County is a gem everyone
+        should...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/tOFA5ZJIFbrUMtqO02pddg/ms.jpg",
+        "categories": [["American (New)", "newamerican"], ["Tapas/Small Plates", "tapasmallplates"],
+        ["Salad", "salad"]], "display_phone": "+1-212-677-7771", "rating_img_url_large":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "county-new-york-2", "is_closed": false, "location": {"cross_streets":
+        "Broadway \u0026 S Park Ave", "city": "New York", "display_address": ["34
+        E 20th St", "Flatiron", "New York, NY 10003"], "geo_accuracy": 9, "neighborhoods":
+        ["Flatiron"], "postal_code": "10003", "country_code": "US", "address": ["34
+        E 20th St"], "coordinate": {"latitude": 40.738537000000001, "longitude": -73.988805999999997},
+        "state_code": "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/the-dining-room-at-the-modern-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 486, "name": "The Dining Room at The Modern", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/jfJVxjngL07_3YRGl6Gdqw/ms.jpg", "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/the-dining-room-at-the-modern-new-york", "phone":
+        "2123331220", "snippet_text": "Just got home from celebrating our anniversary
+        dinner. Reservation made on opentable.com made it easy but u gotta reserve
+        with a credit card so they know ur...", "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/vkUw0QWGI3O4mQiohDG8fQ/ms.jpg",
+        "categories": [["French", "french"], ["American (New)", "newamerican"]], "display_phone":
+        "+1-212-333-1220", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "the-dining-room-at-the-modern-new-york", "is_closed": false, "location":
+        {"cross_streets": "Avenue Of The Americas \u0026 5th Ave", "city": "New York",
+        "display_address": ["9 W 53rd St", "Midtown West", "New York, NY 10019"],
+        "neighborhoods": ["Midtown West"], "postal_code": "10019", "country_code":
+        "US", "address": ["9 W 53rd St"], "state_code": "NY"}}, {"is_claimed": true,
+        "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/jack-the-horse-tavern-brooklyn",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 235, "name": "Jack the Horse Tavern", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/go8UQm0LkMY0uCIAFc962w/ms.jpg", "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/jack-the-horse-tavern-brooklyn", "menu_date_updated":
+        1398974002, "phone": "7188525084", "snippet_text": "I will start off by saying...what
+        on earth took me so long to eat here?! \n\nThis is one of my most favorite
+        restaurants in Brooklyn for sure. I was very...", "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/rI_8TF-Nw9CGX9VXn6qafg/ms.jpg",
+        "categories": [["American (New)", "newamerican"]], "display_phone": "+1-718-852-5084",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "jack-the-horse-tavern-brooklyn",
+        "is_closed": false, "location": {"cross_streets": "Middagh St \u0026 Cranberry
+        St", "city": "Brooklyn", "display_address": ["66 Hicks St", "Brooklyn Heights",
+        "Brooklyn, NY 11201"], "neighborhoods": ["Brooklyn Heights"], "postal_code":
+        "11201", "country_code": "US", "address": ["66 Hicks St"], "state_code": "NY"}},
+        {"is_claimed": true, "rating": 4.5, "mobile_url": "http://m.yelp.com/biz/the-bounty-brooklyn",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 48, "name": "The Bounty", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/M1PSAb6YqppNBjE7Wfid2w/ms.jpg",
+        "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/the-bounty-brooklyn", "menu_date_updated":
+        1403780450, "phone": "3476893325", "snippet_text": "We had read about this
+        resto over a year ago and kept it in mind for when we were in Brooklyn next
+        looking for a good dinner spot. It lived up to our long...", "image_url":
+        "http://s3-media3.fl.yelpcdn.com/bphoto/tXf_SeyCro70A1tISPxwuw/ms.jpg", "categories":
+        [["Bars", "bars"], ["American (New)", "newamerican"]], "display_phone": "+1-347-689-3325",
+        "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "the-bounty-brooklyn", "is_closed":
+        false, "location": {"cross_streets": "Franklin St \u0026 Manhattan Ave", "city":
+        "Brooklyn", "display_address": ["131 Greenpoint Ave", "Greenpoint", "Brooklyn,
+        NY 11222"], "geo_accuracy": 9, "neighborhoods": ["Greenpoint"], "postal_code":
+        "11222", "country_code": "US", "address": ["131 Greenpoint Ave"], "coordinate":
+        {"latitude": 40.730384999999998, "longitude": -73.954811000000007}, "state_code":
+        "NY"}}, {"is_claimed": false, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/gordon-ramsay-at-the-london-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 289, "name": "Gordon Ramsay at The London", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/ZlArFPfE0Q80QZ3QcHmWYA/ms.jpg", "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/gordon-ramsay-at-the-london-new-york", "menu_date_updated":
+        1387631280, "phone": "2124688888", "snippet_text": "Wow, just wow. \nI came
+        here last night with a friend to celebrate my birthday and the experience
+        was fantastic. \nThe food was delicious and the wine pairing...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/yFHoKDl1xezRMMAnlaOwGw/ms.jpg", "categories":
+        [["American (New)", "newamerican"]], "display_phone": "+1-212-468-8888", "rating_img_url_large":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "gordon-ramsay-at-the-london-new-york",
+        "is_closed": false, "location": {"cross_streets": "7th Ave \u0026 Avenue Of
+        The Americas", "city": "New York", "display_address": ["151 W 54th St", "Theater
+        District", "New York, NY 10019"], "neighborhoods": ["Theater District", "Midtown
+        West"], "postal_code": "10019", "country_code": "US", "address": ["151 W 54th
+        St"], "state_code": "NY"}}, {"is_claimed": true, "rating": 3.5, "mobile_url":
+        "http://m.yelp.com/biz/untitled-new-york-4", "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 74, "name": "Untitled", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/CeGHTKpcRqfmcwH0CCvYDA/ms.jpg",
+        "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/untitled-new-york-4", "menu_date_updated":
+        1387745089, "phone": "2125703670", "snippet_text": "Still dreaming about my
+        simple coffee, toast, scrambled eggs, and potatoes brunch from here. Worth
+        every penny. Haven''t tried anything else on the menu, but...", "image_url":
+        "http://s3-media1.fl.yelpcdn.com/bphoto/spBabXc4uzKFTQ7Ri2i0RQ/ms.jpg", "categories":
+        [["American (New)", "newamerican"]], "display_phone": "+1-212-570-3670", "rating_img_url_large":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "menu_provider": "single_platform", "id": "untitled-new-york-4", "is_closed":
+        false, "location": {"city": "New York", "display_address": ["Whitney Museum",
+        "945 Madison Ave", "Upper East Side", "New York, NY 10021"], "neighborhoods":
+        ["Upper East Side"], "postal_code": "10021", "country_code": "US", "address":
+        ["Whitney Museum", "945 Madison Ave"], "state_code": "NY"}}, {"is_claimed":
+        true, "rating": 4.5, "mobile_url": "http://m.yelp.com/biz/battersby-brooklyn",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 182, "name": "Battersby", "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/mP94VN5g7fXv_e87Hj71iA/ms.jpg",
+        "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/battersby-brooklyn", "menu_date_updated":
+        1387749469, "phone": "7188528321", "snippet_text": "The five course tasting
+        menu is $75. It''s worth it.\n\nIt''s been about a year and a half since I
+        last visited Battersby, and was thrilled to find out that...", "image_url":
+        "http://s3-media3.fl.yelpcdn.com/bphoto/jrXOhYwr52U976gYy2f5Bg/ms.jpg", "categories":
+        [["American (New)", "newamerican"]], "display_phone": "+1-718-852-8321", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "battersby-brooklyn", "is_closed":
+        false, "location": {"cross_streets": "Douglass St \u0026 Degraw St", "city":
+        "Brooklyn", "display_address": ["255 Smith St", "Cobble Hill", "Brooklyn,
+        NY 11231"], "neighborhoods": ["Cobble Hill", "Gowanus"], "postal_code": "11231",
+        "country_code": "US", "address": ["255 Smith St"], "state_code": "NY"}}, {"is_claimed":
+        true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/blue-hill-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 561, "name": "Blue Hill", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/XQz03fs83DCxhgfhMK_ZaQ/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/blue-hill-new-york", "menu_date_updated":
+        1387511420, "phone": "2125391776", "snippet_text": "My new favorite restaurant.
+        There are so many reasons to love this place. First, they are directly attached
+        to a farm very close to NYC. We actually went to...", "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/1re_afOWUlc3SWJCnUvdag/ms.jpg",
+        "categories": [["American (New)", "newamerican"]], "display_phone": "+1-212-539-1776",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "blue-hill-new-york", "is_closed":
+        false, "location": {"cross_streets": "Avenue Of The Americas", "city": "New
+        York", "display_address": ["75 Washington Pl", "Greenwich Village", "New York,
+        NY 10011"], "neighborhoods": ["Greenwich Village"], "postal_code": "10011",
+        "country_code": "US", "address": ["75 Washington Pl"], "state_code": "NY"}},
+        {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/one-if-by-land-two-if-by-sea-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 938, "name": "One If By Land Two If By Sea", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/hNgqzxaxMx26tXDPu-gK0w/ms.jpg", "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/one-if-by-land-two-if-by-sea-new-york", "menu_date_updated":
+        1387607136, "phone": "2122280822", "snippet_text": "Came here for an anniversary
+        dinner with my boyfriend and totally recommend it for a date location...or
+        a celebration since it''s pretty pricey. It''s a fancy...", "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/-sbJQvB71lSewK_Rxo_qKQ/ms.jpg",
+        "categories": [["American (New)", "newamerican"]], "display_phone": "+1-212-228-0822",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "one-if-by-land-two-if-by-sea-new-york",
+        "is_closed": false, "location": {"cross_streets": "S 7th Ave \u0026 4th St",
+        "city": "New York", "display_address": ["17 Barrow St", "West Village", "New
+        York, NY 10014"], "geo_accuracy": 9, "neighborhoods": ["West Village"], "postal_code":
+        "10014", "country_code": "US", "address": ["17 Barrow St"], "coordinate":
+        {"latitude": 40.732591999999997, "longitude": -74.002797000000001}, "state_code":
+        "NY"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/public-new-york",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 764, "name": "Public", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/iSdlX0MLJRCRWIV5e6LSqw/ms.jpg",
+        "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/public-new-york", "phone": "2123437011", "snippet_text":
+        "Such a lovely place! The atmosphere is casual, a perfect spot for a date
+        night.\nFood was DELICIOUS. Kangaroo carpaccio was melting in my mouth. Also
+        loved...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/wV9YkLRCzfRvy2afWJ2ZoQ/ms.jpg",
+        "categories": [["American (New)", "newamerican"]], "display_phone": "+1-212-343-7011",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "public-new-york", "is_closed": false, "location": {"cross_streets":
+        "Spring St \u0026 Prince St", "city": "New York", "display_address": ["210
+        Elizabeth St", "Nolita", "New York, NY 10012"], "geo_accuracy": 9, "neighborhoods":
+        ["Nolita"], "postal_code": "10012", "country_code": "US", "address": ["210
+        Elizabeth St"], "coordinate": {"latitude": 40.722437200000002, "longitude":
+        -73.994282400000003}, "state_code": "NY"}}, {"is_claimed": true, "rating":
+        4.5, "mobile_url": "http://m.yelp.com/biz/colicchio-and-sons-tap-room-new-york",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 133, "name": "Colicchio \u0026 Sons Tap Room", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/880j4jTkpH0S1p--XVOZEw/ms.jpg", "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/colicchio-and-sons-tap-room-new-york", "menu_date_updated":
+        1387769896, "phone": "2124006699", "snippet_text": "This place is as near
+        perfect as  it gets. Many times you go to a celebrity chef  owned restaurant
+        it is more hype than anything else. (Jeff, i love you but...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/d6WyNKMYyr5ZnQQLefgg6w/ms.jpg", "categories":
+        [["American (New)", "newamerican"]], "display_phone": "+1-212-400-6699", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "colicchio-and-sons-tap-room-new-york",
+        "is_closed": false, "location": {"cross_streets": "W 15th St and W 16th St",
+        "city": "New York", "display_address": ["85 10th Ave", "Meatpacking District",
+        "New York, NY 10011"], "neighborhoods": ["Meatpacking District", "Chelsea"],
+        "postal_code": "10011", "country_code": "US", "address": ["85 10th Ave"],
+        "state_code": "NY"}}]}'
+    http_version: 
+  recorded_at: Sun, 17 Aug 2014 18:31:10 GMT
+recorded_with: VCR 2.9.2
