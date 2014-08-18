@@ -9,6 +9,7 @@
 
 <div class="yelp_review">
 	<% unless @restaurant.yelp_biz_id == -99999999 %>
+		<p> Average Yelp Rating : <%= @restaurant.yelp_response.rating %> / 5</p>
 		<img id="user_photo" src="<%= @restaurant.yelp_review_user_image %>">
 		<br>
 		<img  src="<%= @restaurant.yelp_review_rating_url %>">
