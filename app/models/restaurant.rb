@@ -1,5 +1,4 @@
 class Restaurant < ActiveRecord::Base
-  attr_reader :yelp_response
   has_many :inspections
   validates_uniqueness_of :phone
   geocoded_by :address
@@ -61,8 +60,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def yelp_review_user
-    
-   yelp_response.reviews.first.user.name
+    yelp_response.reviews.first.user.name
   end
 
   def yelp_review_user_image
@@ -81,6 +79,4 @@ end
       return -99999999
     end
   end
-
-
 end
