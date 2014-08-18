@@ -10,11 +10,31 @@
 	background: #FF0000;
 }
 
-.yelp_review{
-	border: 1px solid black;
 
-	#user_photo {
-		/*border-radius: 50px;*/
+.restaurant {
+	font-family: "museo-sans", sans-serif;
+	width: 75%;
+	overflow: auto;
+	border-radius: 5px;
 
+	#current_grade {
+		float:left;
+		padding-top: 8.0%;
+
+		img {
+			width: 250px;
+			height: 250px;	
+		}
+	}
+
+	#information {
+		
+	}
+
+	#yelp_review{
+		float:right;
+		border: 1px solid black;
+		width: 100%;
+		height: 25%;
 	}
 }
