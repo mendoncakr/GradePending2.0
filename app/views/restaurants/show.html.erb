@@ -27,10 +27,11 @@
 		<% end %>
 	</div>
 
-	 <% if user_signed_in?  %>
-		<div>
-			<h1>HEYYYY</h1>
-		</div>
-	<% end %>
-	
-</div>
+
+ <% if user_signed_in?  %>
+	<div>
+		<%= link_to "Add to Favorites", add_favorite_restaurant_path  %>
+
+	</div>
+<% end %>
+
