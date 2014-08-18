@@ -1,15 +1,13 @@
-<h1><%= @restaurant.name %></h1>
-<p>Current Grade: <%= image_tag "grade_card_a.jpg" if @restaurant.current_grade == "A"%>
-<%= image_tag "grade_card_b.jpg" if @restaurant.current_grade == "B"%>
-<%= image_tag "grade_card_c.jpg" if @restaurant.current_grade == "C"%>
-<%= image_tag "grade_card_gp.jpg" if @restaurant.current_grade == nil %></p>
-<p>Addres: <%= @restaurant.address %>
-<p><%= @restaurant.zipcode.to_i %>
-<p>Phone: <%= @restaurant.phone.to_i %>
+<div class="restaurant">
+	<div id="information">
+		<h1><%= @restaurant.name %></h1>
+		<%= @restaurant.address %>
+		<br>
+		<%= @restaurant.phone.to_i %>
+	</div>
 
-<div class="yelp_review">
-	<% unless @restaurant.yelp_biz_id == -99999999 %>
-		<p> Average Yelp Rating : <%= @restaurant.yelp_response.rating %> / 5</p>
+	<div class="yelp_review">
+		<% unless @restaurant.yelp_biz_id == -99999999 %>
 		<img id="user_photo" src="<%= @restaurant.yelp_review_user_image %>">
 		<br>
 		<img  src="<%= @restaurant.yelp_review_rating_url %>">
@@ -17,6 +15,8 @@
 		<p><%= @restaurant.top_yelp_review %></p>
 		<img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/3049d7633b6e/developers/reviewsFromYelpRED.gif">
 		<% else %>
-			<p>No Yelp Reviews Found</p>
+		<p>No Yelp Reviews Found</p>
 		<% end %>
+	</div>
+
 </div>
