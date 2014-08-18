@@ -22,7 +22,8 @@ var getCoords = function() {
           geometryColumn: 'latitude', // geometry column name
       		suppressMapTips: false, // optional, whether to show map tips. default false
           delay: 200, // milliseconds mouse pause before send a server query. default 300.
-          tolerance: 8 // tolerance in pixel around mouse. default is 6.
+          tolerance: 8,
+          key: 'AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI'
       	});
               //listen to events if desired.
               google.maps.event.addListener(layer2, 'mouseover', function(fEvent) {
