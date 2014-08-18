@@ -1,4 +1,5 @@
 class Restaurant < ActiveRecord::Base
+  attr_reader :yelp_response
   has_many :inspections
   validates_uniqueness_of :phone
   geocoded_by :address
@@ -54,23 +55,22 @@ class Restaurant < ActiveRecord::Base
   def yelp_response
     @response  ||= Yelp.client.business(self.yelp_biz_id)
   end
+
   def top_yelp_review
-    self.yelp_response.reviews.first.excerpt
+    yelp_response.reviews.first.excerpt
   end
 
   def yelp_review_user
-    @response ||= Yelp.client.business(self.yelp_biz_id)
-    @response.reviews.first.user.name
+    
+   yelp_response.reviews.first.user.name
   end
 
   def yelp_review_user_image
-    @response ||= Yelp.client.business(self.yelp_biz_id)
-    @response.reviews.first.user.image_url
+   yelp_response.reviews.first.user.image_url
 end
 
   def yelp_review_rating_url
-    @response ||= Yelp.client.business(self.yelp_biz_id)
-    @response.reviews.first.rating_image_large_url
+  yelp_response.reviews.first.rating_image_large_url
 end
 
   def yelp_biz_id
