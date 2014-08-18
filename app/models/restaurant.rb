@@ -51,9 +51,11 @@ class Restaurant < ActiveRecord::Base
 
 
   # Yelp reviews
-  def top_yelp_review
+  def yelp_response
     @response  ||= Yelp.client.business(self.yelp_biz_id)
-    @response.reviews.first.excerpt
+  end
+  def top_yelp_review
+    self.yelp_response.reviews.first.excerpt
   end
 
   def yelp_review_user
