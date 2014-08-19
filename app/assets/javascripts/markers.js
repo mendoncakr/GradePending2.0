@@ -31,5 +31,11 @@ $(function() {
     names  = response.map( function (resp){return resp[1]})
     console.log(names)
     $('#search').autocomplete({source: response})
+
+  });
+
+  $('#search').on('submit', function (e) {
+  	e.preventDefault()
+  	
   })
 });
