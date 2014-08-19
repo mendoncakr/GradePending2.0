@@ -23,7 +23,9 @@ var getCoords = function() {
 
 
 $(function() {
+	$(document).one("load", function(){
 	namesAjax();
+	})
 	getCoords();
 	
 });
