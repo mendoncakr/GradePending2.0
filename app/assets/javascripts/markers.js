@@ -30,6 +30,8 @@ $(function() {
   initialize();
   namesAjax(function (response) {
     console.log(response)
+    names  = response.map( function (resp){return resp[1]})
+    console.log(names)
     $('#search').autocomplete({source: response})
   })
 });
