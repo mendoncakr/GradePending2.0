@@ -10,7 +10,10 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		p params
+		respond_to do |format|
+			format.html
+			format.json {render json: { restaurant: @restaurant.id, user: current_user.id } }
+		end
 	end
 
 	def search 
@@ -22,7 +25,15 @@ class RestaurantsController < ApplicationController
 
 	def favorite
 		@restaurant =  Restaurant.find(params[:id])
-		@favorite = FavoriteRestaurant.create(user_id: current_user.id, restaurant_id: @restaurant.id)
+		@favorite = FavoriteRestaurant.new(user_id: current_user.id, restaurant_id: @restaurant.id)
+		if @favorite.valid?
+			@favorite.save
+			# flash[:notice] = "Added to your favorites!"
+			redirect_to :back
+		else
+			# flash[:notice] = "Already in your favorites!"
+			redirect_to :back
+		end
 	end
 end
 
