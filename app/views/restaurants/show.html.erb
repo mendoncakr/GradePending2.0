@@ -1,4 +1,7 @@
 <div class="restaurant">
+		<% if flash[:notice] %>
+		   <%= flash[:notice] %>
+		<% end %>
 
 	<div id="current_grade">
 		<%= image_tag "grade_card_a.png" if @restaurant.current_grade == "A"%>
@@ -27,11 +30,13 @@
 		<% end %>
 	</div>
 
-
- <% if user_signed_in?  %>
 	<div>
-		<%= link_to "Add to Favorites", add_favorite_restaurant_path  %>
-
+		 <% if user_signed_in?  %>
+			<div >
+				<%= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true  %>
+			</div>
+		<% end %>
 	</div>
-<% end %>
+
+
 
