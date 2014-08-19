@@ -34,8 +34,12 @@ $(function() {
 
   });
 
-  $('#search').on('submit', function (e) {
+  $('form').on('submit', function (e) {
   	e.preventDefault()
+  	restaurantName = document.getElementById('search').value;
+  	console.log(restaurantName);
   	
+
+
   })
 });
