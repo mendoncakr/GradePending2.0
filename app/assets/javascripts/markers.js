@@ -28,4 +28,8 @@ function initialize() {
 
 $(function() {
   initialize();
+  namesAjax(function (response) {
+    console.log(response)
+    $('#search').autocomplete({source: response})
+  })
 });
