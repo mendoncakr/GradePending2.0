@@ -27,18 +27,23 @@ function initialize() {
 $(function() {
   initialize();
   namesAjax(function (response) {
-    console.log(response)
+    namesAndIds = response
     names  = response.map( function (resp){return resp[1]})
     console.log(names)
-    $('#search').autocomplete({source: response})
+    $('#search').autocomplete({source: names})
 
   });
 
   $('form').on('submit', function (e) {
   	e.preventDefault()
-  	restaurantName = document.getElementById('search').value;
+  	var restaurantName = document.getElementById('search').value.toUpperCase();
   	console.log(restaurantName);
-  	
+  	for (var i = 0; i < namesAndIds.length; i++) { 
+  		for (var j = 0; j < namesAndIds[i].length; j++) {
+  			console.log( namesAndIds[i][j]);
+  		}
+  	}
+
 
 
   })
