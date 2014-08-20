@@ -28,7 +28,14 @@ $(function() {
   initialize();
   namesAjax(function (response) {
   	console.log(response)
-    // namesAndIds = response
+    namesAndIds = response
+   sr =  $.map(namesAndIds, function (value, key) {
+    	return {
+    		label : value,
+    		value : key
+    	};
+	});
+    console.log(sr)
     // names  = response.map( function (resp){return resp[1]})
     // console.log(names)
     // $('#search').autocomplete({source: names})
