@@ -11,7 +11,15 @@ class Restaurant < ActiveRecord::Base
 
 
   def address
-  	"#{self.building} " + "#{self.street.strip} "+ "#{self.borough} " + "#{self.zipcode}"
+  	"#{self.building} " + "#{self.street.strip} " + "#{self.borough} " + "#{self.zipcode}"
+  end
+
+  def street_address
+    "#{self.building} " + "#{self.street.strip.titleize}"
+  end
+
+  def boro_and_zip
+    "#{self.borough}, " + "#{self.zipcode}"
   end
 
   def save_coords
