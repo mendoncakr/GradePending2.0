@@ -15,5 +15,8 @@ Rails.application.routes.draw do
 
 	get '/markers', to: "markers#markers"
 
+
+	#User Routes
+	get '/users/home', to: "users#index", as: :my_account
 end
 
