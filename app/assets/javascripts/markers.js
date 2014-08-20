@@ -40,14 +40,14 @@ $(function() {
     	};
   });
     $('#search').autocomplete({source: sr, change: function (event, ui) {
-      console.log(ui);  
+      id = ui.item.id;   
     }})
 
   });
 
   $('form').on('submit', function (e) {
   	e.preventDefault()
-  	var id = document.getElementById('search').value;
+  	// var id = document.getElementById('search').value;
   	window.location = "/restaurants/"+ id
   
 
