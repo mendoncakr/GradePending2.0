@@ -31,16 +31,17 @@ $(function() {
 	
   initialize();
   namesAjax(function (response) {
-  	console.log(response)
     namesAndIds = response
-   sr =  $.map(namesAndIds, function (key, value) {
+    var sr =  $.map(namesAndIds, function (key, value) {
     	return {
-    		label : value,
-    		value : key
+            label : value,
+            value : value,
+            id: key
     	};
-	});
-    console.log(sr)
-    $('#search').autocomplete({source: sr})
+  });
+    $('#search').autocomplete({source: sr, change: function (event, ui) {
+      console.log(ui);  
+    }})
 
   });
 
