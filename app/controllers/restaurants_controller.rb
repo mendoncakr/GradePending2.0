@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 	def index
 		respond_to do |format|
 			format.html
-			format.json {render json: Restaurant.all.pluck(:name)}
+			format.json {render json: Hash[Restaurant.all.pluck(:name, :id)]}
 		end
 	end
 
