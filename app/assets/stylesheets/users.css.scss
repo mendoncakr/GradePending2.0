@@ -2,31 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.favorites_container {
-	margin: 0 auto;
-}
 /*Favorites List*/
 .my_favorites {
+	position: relative;
 
 	li {
-		width: 75%;
+		float: left;
+		width: 300px;
+		height: 300px;
 		display: inline-block;
-		height: 60px;
 		border: 1px solid black;
+		margin: 5px;
 
 		#current_grade {
-			float: right;
+			background-color: yellow;
 
 			img {
 				display:block;
 				max-height: 100%;
 				width: 100px;
-				height: 75px;
+				height: 100px;
+				margin: 0 auto;
 			}
 		}
 
 		#restaurant_name {
-			float:left;
+			top: 0;
+			text-align: center;
+			background-color: blue;
+			max-width: 100%;
 		}
+
+		#button_centered {
+
+		}
+
+
 	}
 }
