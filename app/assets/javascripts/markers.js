@@ -29,30 +29,22 @@ $(function() {
   namesAjax(function (response) {
   	console.log(response)
     namesAndIds = response
-   sr =  $.map(namesAndIds, function (value, key) {
+   sr =  $.map(namesAndIds, function (key, value) {
     	return {
     		label : value,
     		value : key
     	};
 	});
     console.log(sr)
-    // names  = response.map( function (resp){return resp[1]})
-    // console.log(names)
-    // $('#search').autocomplete({source: names})
+    $('#search').autocomplete({source: sr})
 
   });
 
   $('form').on('submit', function (e) {
   	e.preventDefault()
-  	var restaurantName = document.getElementById('search').value.toUpperCase();
-  	console.log(restaurantName);
-  	for (var i = 0; i < namesAndIds.length; i++) { 
-  		for (var j = 0; j < namesAndIds[i].length; j++) {
-  			console.log( namesAndIds[i][j]);
-  		}
-  	}
-
-
+  	var id = document.getElementById('search').value;
+  	window.location = "/restaurants/"+ id
+  
 
   })
 });
