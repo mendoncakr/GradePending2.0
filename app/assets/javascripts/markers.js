@@ -25,6 +25,10 @@ function initialize() {
 }
 
 $(function() {
+
+	$(document).one("load", function(){ namesAjax(); })
+	// getCoords();
+	
   initialize();
   namesAjax(function (response) {
   	console.log(response)
