@@ -1,5 +1,9 @@
-var namesAjax = function() {
-	return $.get('restaurants/index.json', function(response) {
-			$('#search').autocomplete({source: response})
-		});
-}
+function namesAjax (callback) {
+	$.get('restaurants/index.json')
+	.done(function (data) {
+		callback (data)
+	});
+}			
+
+	
+

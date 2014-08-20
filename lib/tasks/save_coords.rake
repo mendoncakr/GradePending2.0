@@ -1,6 +1,6 @@
 
 	task :coords => :environment do 
-		Restaurant.where(latitude: nil).find_each(batch_size: 5000) do |r|
+		Restaurant.all.find_each(batch_size: 5000) do |r|
 			r.save_coords
 		end
 	end
@@ -27,9 +27,9 @@
 	end
 
 	task :save_csv => :environment do 
-		CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
+		CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "address", "latitude", "longitude"]) do |f|
 			Restaurant.where.not(latitude: nil).each do |r|
-				f << ["#{r.id}", "#{r.name.strip}","#{r.latitude}", "#{r.longitude}"]
+				f << ["#{r.id}", "#{r.name.strip}","#{r.address}","#{r.latitude}", "#{r.longitude}"]
 			end
 		end
 	end
