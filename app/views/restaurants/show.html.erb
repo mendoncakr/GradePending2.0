@@ -33,11 +33,13 @@
 	</div>
 
 	<div>
+
 		 <% if user_signed_in?  %>
 			<div >
 				<%= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}  %>
 			</div>
 		<% end %>
+		<ol class="messages"></ol>
 	</div>
 </div>
 
