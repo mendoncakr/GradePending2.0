@@ -1,0 +1,28 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.my_favorites {
+
+	li {
+		width: 75%;
+		display: inline-block;
+		height: 60px;
+		border: 1px solid black;
+
+		#current_grade {
+			float: right;
+
+			img {
+				display:block;
+				max-height: 100%;
+				width: 100px;
+				height: 75px;
+			}
+		}
+
+		#restaurant_name {
+			float:left;
+		}
+	}
+}

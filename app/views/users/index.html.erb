@@ -1,0 +1,51 @@
+<body class="users">
+	<h1>Welcome <%= @user.email %></h1>
+
+
+	<% if @favorites %>
+
+		<ul class="my_favorites">
+
+			<% @favorites.each do |rest| %>
+				<li id="favorite">
+					<div id="restaurant_name"><h2><%= rest.name %></h2></div>
+					<div id="current_grade"><%= render "/users/current", :target => rest %></div>
+				</li>
+			<% end %>
+			
+		</ul>
+	
+	<% else %>
+		<h2>Add some favorites to track their inspections!</h2>
+	<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
