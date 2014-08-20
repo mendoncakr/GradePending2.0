@@ -27,10 +27,11 @@ function initialize() {
 $(function() {
   initialize();
   namesAjax(function (response) {
-    namesAndIds = response
-    names  = response.map( function (resp){return resp[1]})
-    console.log(names)
-    $('#search').autocomplete({source: names})
+  	console.log(response)
+    // namesAndIds = response
+    // names  = response.map( function (resp){return resp[1]})
+    // console.log(names)
+    // $('#search').autocomplete({source: names})
 
   });
 
