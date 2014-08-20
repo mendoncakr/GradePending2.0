@@ -22,6 +22,8 @@ gem 'thin'
 #Use dotenv for dev/production
 gem 'dotenv-rails', :groups => [:development, :test]
 
+#YELP gem
+gem 'yelp', require: 'yelp'
 
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
@@ -38,10 +40,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
 
+
 group :test do
   gem 'shoulda-matchers', require: false
   gem 'jasmine'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'vcr'
+	gem 'webmock'
 end
