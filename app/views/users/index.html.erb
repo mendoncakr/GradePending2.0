@@ -9,8 +9,14 @@
 
 			<% @favorites.each do |rest| %>
 				<li id="favorite">
-					<div id="restaurant_name"><h2><%= rest.name %></h2></div>
+					<h3><%= rest.name %></h3>
+					<p>
+						<%= rest.street_address %>
+						<br>
+						<%= rest.boro_and_zip %>
+					</p>
 					<div id="current_grade"><%= render "/users/current", :target => rest %></div>
+					<div id="button_centered"></div>
 				</li>
 			<% end %>
 
