@@ -27,5 +27,9 @@ function initialize() {
 }
 
 $(function() {
+
+	$(document).one("load", function(){ namesAjax(); })
+	// getCoords();
+	
   initialize();
 });

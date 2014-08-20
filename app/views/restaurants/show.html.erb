@@ -1,4 +1,17 @@
+<div id="map-canvas"></div>
 <div class="restaurant">
+
+		<% if flash[:notice] %>
+		   <%= flash[:notice] %>
+		<% end %>
+
+	<div id="current_grade">
+		<%= image_tag "grade_card_a.png" if @restaurant.current_grade == "A"%>
+		<%= image_tag "grade_card_b.png" if @restaurant.current_grade == "B"%>
+		<%= image_tag "grade_card_c.png" if @restaurant.current_grade == "C"%>
+		<%= image_tag "grade_card_gp.png" if @restaurant.current_grade == nil %></p>
+	</div>
+
 	<div id="information">
 		<h1><%= @restaurant.name %></h1>
 		<%= @restaurant.address %>
@@ -19,4 +32,16 @@
 		<% end %>
 	</div>
 
+	<div>
+
+		 <% if user_signed_in?  %>
+			<div >
+				<%= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}  %>
+			</div>
+		<% end %>
+		<ol class="messages"></ol>
+	</div>
 </div>
+
+
+
