@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Grade Pending 2.0</title>
-  
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI">
@@ -12,12 +11,11 @@
   <%= csrf_meta_tags %>
 
 	 <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
-
+	 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-
-	<nav>
+	<div class="nav">
 		<h1><%= link_to 'Grade Pending 2.0', root_path %></h1>
 		<div id="nav_links">
 			<% if user_signed_in? %>
@@ -27,7 +25,7 @@
 				<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
 			<% end %>
 		</div>
-	</nav>
+	</div>
 
 <%= yield %>
 

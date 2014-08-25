@@ -1,4 +1,3 @@
-<div id="map-canvas"></div>
 <div class="restaurant">
 
 		<% if flash[:notice] %>
@@ -25,6 +24,7 @@
 		<br>
 		<img  src="<%= @restaurant.yelp_review_rating_url %>">
 		<p><%= @restaurant.yelp_review_user %> says....</p>
+
 		<p><%= @restaurant.top_yelp_review %></p>
 		<img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/3049d7633b6e/developers/reviewsFromYelpRED.gif">
 		<% else %>
