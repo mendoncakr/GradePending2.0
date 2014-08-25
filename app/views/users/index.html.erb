@@ -1,0 +1,58 @@
+<!-- <div id="map-canvas"></div> -->
+<body class="users">
+	<h1>Welcome <%= @user.email %></h1>
+
+<div class="favorites_container">
+	<% if @favorites %>
+
+		<ul class="my_favorites">
+
+			<% @favorites.each do |rest| %>
+				<li id="favorite">
+					<h3><%= rest.name %></h3>
+					<p>
+						<%= rest.street_address %>
+						<br>
+						<%= rest.boro_and_zip %>
+					</p>
+					<div id="current_grade"><%= render "/users/current", :target => rest %></div>
+					<div id="button_centered"></div>
+				</li>
+			<% end %>
+
+		</ul>
+	
+	<% else %>
+		<h2>Add some favorites to track their inspections!</h2>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>

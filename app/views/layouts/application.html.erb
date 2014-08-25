@@ -11,7 +11,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
-	 
+	 <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
 
 
 </head>
@@ -19,20 +19,14 @@
 
 	<nav>
 		<h1><%= link_to 'Grade Pending 2.0', root_path %></h1>
-    <%= form_tag restaurants_search_path, :method=> 'get' do |f| %>
-      <%= text_field_tag :search %>
-      <%= submit_tag 'Search' %>
-      <% end %>
 		<div id="nav_links">
 			<% if user_signed_in? %>
-				<!-- Link to my favorites here -->
-				<!-- Delete method below needed as route is a DELETE  -->
+				<%= link_to "My Favorites", my_account_path %>
 				<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
 			<% else %>
 				<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
 			<% end %>
 		</div>
-
 	</nav>
 
 <%= yield %>

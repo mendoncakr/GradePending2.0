@@ -1,0 +1,53 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.favorites_container {
+	margin: 0 auto;
+	padding-left: 10%;
+}
+
+h3 {
+	font-family: 'Happy Monkey', cursive;
+	font-size: 1.25em;
+	top: 0;
+	text-align: center;
+	max-width: 100%;
+}
+
+
+
+
+/*Favorites List*/
+.my_favorites {
+	position: relative;
+
+	li {
+		float: left;
+		width: 300px;
+		height: 300px;
+		display: inline-block;
+		border: 1px solid black;
+		margin: 5px;
+		overflow: hidden;
+
+		#current_grade {
+			img {
+				display:block;
+				max-height: 100%;
+				width: 175px;
+				height: 175px;
+				margin: 0 auto;
+			}
+		}
+
+		p {
+	
+			text-align: center;
+			font-family: 'Happy Monkey', cursive;
+			font-size: 1em;
+
+		}
+	}
+}

@@ -1,1 +1,7 @@
-  <div id="map-canvas"></div>
+ 
+<%= form_tag restaurants_search_path, :method=> 'get' do |f| %>
+<%= text_field_tag :search %>
+<%= submit_tag 'Search' %>
+<% end %>
+
+<div id="map-canvas"></div>
