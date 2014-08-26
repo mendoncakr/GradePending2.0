@@ -14,21 +14,129 @@
  *= require_self
  */
 
-nav {
-	height: 50px;
-	width: 100%;
 
-		h1{
-			float:left;
-		}
+ body {
+ 	background: image-url("bcg.jpg") no-repeat center center fixed; 
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+ }
 
-		#nav_links {
-			padding-top: 1.5%;
-			float: right;
-		}
+ #logo {
+ 	margin: 0 auto;
+ 	text-align: center;
+ 	width: 800px;
+ 	padding-top: 5%;
+
+ 	h1 {
+ 		font-family: 'Oswald', sans-serif;
+ 		font-weight:600;
+ 		font-size: 7vw;
+ 		color: white;
+ 		margin: 3%;
+ 	}
+ }
+
+.about {
+	margin: 0 auto;
+	width: 800px;
+	padding-top: 25%;
+	text-align: center;
+	
+	h2 {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 2.5em;
+ 		color: white;		
+	}
 }
 
-#map-canvas {
-    height: 600px;
-    width: 100%;
-}
+ .nav {
+ 	width: 100%;
+ 	padding-top: 0;
+ 	margin: 0 0 10px;
+
+ 	h1 {
+ 		float:left;
+ 		font-family: 'Open Sans', sans-serif;
+ 		font-size: 2em;
+ 		padding-top: 2%;
+ 	}
+
+ 	#nav_links {
+ 		font-family: 'Open Sans', sans-serif;
+ 		font-size: 1.25em;
+ 		padding-top: 2.5%;
+ 		padding-right: 3%;
+ 		float: right;
+ 	}
+ }
+
+ #map-canvas {
+ 	height: 400px;
+ 	width: 95%;
+ 	border-radius: 4px;
+ 	margin-left: 2.5%;
+ 	margin-top: 2.5%;
+
+ }
+
+ a:link, a:visited , a:hover, a:active {
+ 	color: white;
+ 	text-decoration: none;
+ }
+
+
+
+ .explore_animate {
+ 
+
+	 #explore {
+	  border-radius: 5px;
+	  height: 40px;
+	  width: 250px;
+	  background-color: #e9b654;
+	  color:white;	
+	  font-size: 14px;
+	  border: 0;
+	  }
+	 
+
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

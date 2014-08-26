@@ -1,6 +1,5 @@
-<!-- <div id="map-canvas"></div> -->
 <body class="users">
-	<h1>Welcome <%= @user.email %></h1>
+	<h1>Welcome <%= @user.username.capitalize %></h1>
 
 <div class="favorites_container">
 	<% if @favorites %>
@@ -28,6 +27,7 @@
 </div>
 
 
+<!-- <div id="map-canvas"></div> -->
 
 
 

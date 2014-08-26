@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :favorite_restaurants
   has_many :favorites, through: :favorite_restaurants, source: :restaurant
+
+  def username
+  	"#{self.email[/[^@]+/]}"
+  end
 end

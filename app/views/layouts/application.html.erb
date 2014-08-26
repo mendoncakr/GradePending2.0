@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Grade Pending 2.0</title>
-  
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI">
@@ -12,13 +11,15 @@
   <%= csrf_meta_tags %>
 
 	 <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
+	 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	 <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
 
+	  <link rel="stylesheet" src="animate.min.css">
 
 </head>
 <body>
-
-	<nav>
-		<h1><%= link_to 'Grade Pending 2.0', root_path %></h1>
+	
+	<div class="nav">
 		<div id="nav_links">
 			<% if user_signed_in? %>
 				<%= link_to "My Favorites", my_account_path %>
@@ -27,7 +28,21 @@
 				<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
 			<% end %>
 		</div>
-	</nav>
+	</div>
+
+	<div id="logo" class="animated bounceInDown">
+			<h1>GradePending</h1>
+	<div class="explore_animate"><button id="explore">Explore</button></div>
+	</div>
+
+
+	<%= render :partial => '/shared/index' %>
+
+<div class="about">
+	<h2>
+		A web application that allows you to view the most current NYC Department of Health and Mental Hygiene’s sanitary inspections grades of restaurants in all five boroughs of New York City
+	</h2>
+</div>
 
 <%= yield %>
 
