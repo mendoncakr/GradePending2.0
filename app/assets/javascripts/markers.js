@@ -1,7 +1,7 @@
 function initialize() {
   var mapOptions = {
     center: new google.maps.LatLng(40.766579, -73.9783445),
-    zoom: 8
+    zoom: 15
   };
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   var layer2 = new google.maps.FusionTablesLayer({
@@ -33,8 +33,6 @@ $(function() {
     initialize();
   }
     
-  // $(".homepage").load( function(){ initialize(); });
-
   namesAjax(function (response) {
     namesAndIds = response
     var sr =  $.map(namesAndIds, function (key, value) {
@@ -50,7 +48,7 @@ $(function() {
 
   });
 
-  $('form').on('submit', function (e) {
+  $('.search').on('submit', function (e) {
   	e.preventDefault()
   	// var id = document.getElementById('search').value;
   	window.location = "/restaurants/"+ id
