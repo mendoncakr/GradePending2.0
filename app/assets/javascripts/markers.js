@@ -27,8 +27,12 @@ function initialize() {
 $(function() {
 
 	$(document).one("load", function(){ namesAjax(); })
-	// getCoords();
-	initialize();
+
+
+	if (document.getElementById('map-canvas') !== null) {
+    initialize();
+  }
+    
   // $(".homepage").load( function(){ initialize(); });
 
   namesAjax(function (response) {
