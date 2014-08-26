@@ -21,9 +21,10 @@
 $(function(){
 	$('.about').hide();
 	$('.map_and_search').hide();
+	
 	$("#explore").on("click", function(){
-		$('.map-canvas').css({ height: 'auto', width: 'auto' });
-		$('.map_and_search').fadeIn('slow');
+		$('.map_and_search').fadeIn('slow')
+		initialize()
 		$(this).hide();
 	})
 })
