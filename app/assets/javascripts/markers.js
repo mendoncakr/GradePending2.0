@@ -30,7 +30,7 @@ $(function() {
 
 
 	if (document.getElementById('map-canvas') !== null) {
-    initialize();
+    // initialize();
   }
     
   namesAjax(function (response) {

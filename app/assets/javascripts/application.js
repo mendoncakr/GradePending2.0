@@ -23,6 +23,7 @@ $(function(){
 	$('.map_and_search').hide();
 	$("#explore").on("click", function(){
 		$('.map_and_search').fadeIn('slow')
+		initialize()
 		$(this).hide();
 	})
 })
