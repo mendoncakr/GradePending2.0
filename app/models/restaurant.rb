@@ -30,8 +30,17 @@ class Restaurant < ActiveRecord::Base
   end
 
   def current_grade
-    Inspection.where(restaurant_id: self.id).order(grade_date: :asc).first.current_grade
+    Inspection.where(restaurant_id: self.id).order(grade_date: :desc).first.current_grade
   end
+
+  def last_inspection_date
+    self.inspections.order(inspection_date: :desc).first.inspection_date
+  end
+
+  def last_inspections
+    Inspection.where(inspection_date: r.inspection_date, restaurant_id: r.id)
+  end
+
 
   def self.search(params)
     where("name like ?", "#{params}")
