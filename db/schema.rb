@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818145324) do
+ActiveRecord::Schema.define(version: 20140827002405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,17 +24,17 @@ ActiveRecord::Schema.define(version: 20140818145324) do
   end
 
   create_table "inspections", force: true do |t|
-    t.string   "inspection_date"
     t.string   "action"
     t.string   "violation_code"
     t.string   "score"
     t.string   "current_grade"
-    t.string   "grade_date"
-    t.string   "record_date"
     t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "phone"
+    t.datetime "inspection_date"
+    t.datetime "grade_date"
+    t.datetime "record_date"
   end
 
   create_table "restaurants", force: true do |t|
