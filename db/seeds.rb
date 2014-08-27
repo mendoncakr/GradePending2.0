@@ -6,8 +6,7 @@ CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', heade
 	row = row.to_hash
 
 	r = Restaurant.create(
-		name: row["DBA"],hshahaha
-		hahahahadfasfdthahahaw
+		name: row["DBA"],
 		boro: row["BORO"],
 		building: row["BUILDING"],
 		street: row["STREET"],
