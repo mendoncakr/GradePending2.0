@@ -5,9 +5,6 @@
 		end
 	end
 
-	task :save_coords => :environment do 
-		Restaurant.where(latitude: nil) do 
-	end
 
 	task :save_to_text => :environment do 
 		filename = File.open(File.join(Rails.root, 'db', 'lat_long.txt') ,'w+')
