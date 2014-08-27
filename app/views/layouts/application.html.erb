@@ -20,24 +20,19 @@
 <body>
 	
 	<div class="nav">
-		<div id="nav_links">
+		<ul id="nav_links">
 			<% if user_signed_in? %>
-				<%= link_to "My Favorites", my_account_path %>
-				<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
+				<li><%= link_to "My Favorites", my_account_path %></li>
+				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
 			<% else %>
-				<%= link_to "Sign up", new_user_registration_path %> 
-				<%= link_to "Sign in", new_user_session_path %>
+				<li><%= link_to "Sign up", new_user_registration_path %> </li>
+				<li><%= link_to "Sign in", new_user_session_path %></li>
 			<% end %>
-		</div>
-	</div>
-
-	<div id="logo" class="animated bounceInDown">
-			<h1>GradePending</h1>
-	<div class="explore_animate"><button id="explore">Explore</button></div>
+		</ul>
 	</div>
 
 
-	<%= render :partial => '/shared/index' %>
+	
 
 <div class="about">
 	<h2>

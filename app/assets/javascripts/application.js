@@ -21,10 +21,18 @@
 $(function(){
 	$('.about').hide();
 	$('.map_and_search').hide();
-	
+
+	$('#explore').hover(function(){
+		$(this).addClass('animated pulse');
+	})
+
 	$("#explore").on("click", function(){
-		$('.map_and_search').fadeIn('slow')
+		$('.map_and_search').fadeIn('slow');
 		initialize()
 		$(this).hide();
+	})
+
+	$('#nav_links li').hover(function(){
+		$(this).addClass('animated pulse');
 	})
 })
