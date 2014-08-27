@@ -1,10 +1,13 @@
 require 'csv'
 # file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
+# inspection_counter = 0
+# restaurant_counter = 0
 # CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
 # 	row = row.to_hash
 
 # 	r = Restaurant.create(
-# 		name: row["DBA"],
+# 		name: row["DBA"],hshahaha
+# 		hahahahadfasfdthahahaw
 # 		boro: row["BORO"],
 # 		building: row["BUILDING"],
 # 		street: row["STREET"],
@@ -12,19 +15,20 @@ require 'csv'
 # 		phone: row["PHONE"],
 # 		cuisine_code: row["CUISINECODE"]
 # 		)
-
+# 	restaurant_counter += 1
 
 
 # i = Inspection.create(
 # 	phone: row["PHONE"],
-# 	inspection_date: row["INSPDATE"],
+# 	inspection_date: Chronic.parse(row["INSPDATE"]),
 # 	action: row["ACTION"],
 # 	violation_code: row["VIOLCODE"],
 # 	score: row["SCORE"],
 # 	current_grade: row["CURRENTGRADE"],
-# 	grade_date: row["GRADEDATE"],
-# 	record_date: row["RECORDDATE"]
+# 	grade_date: Chronic.parse(row["GRADEDATE"]),
+# 	record_date: Chronic.parse(row["RECORDDATE"])
 # 	)
+# 	inspection_counter += 1
 # end
  																												
 
@@ -53,12 +57,12 @@ end
 # 	p r
 # end
 
-filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
-CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
-	Restaurant.where.not(latitude: nil).each do |r|
-		f << ["#{r.id}", "#{r.name.strip}", "#{r.address}", "#{r.latitude}", "#{r.longitude}"]
-	end
-end
+# filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
+# CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
+# 	Restaurant.where.not(latitude: nil).each do |r|
+# 		f << ["#{r.id}", "#{r.name.strip}", "#{r.address}", "#{r.latitude}", "#{r.longitude}"]
+# 	end
+# end
 
 
 

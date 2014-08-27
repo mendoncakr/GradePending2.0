@@ -6,12 +6,11 @@ gem 'pg'
 #Location Finding
 gem "geocoder"
 
-#SODA JSON
-gem 'soda-ruby', :require=> 'soda'
 
-#Gmaps4 Rails
+#Chronic for Date Parsing
+gem 'chronic'
+
 gem 'underscore-rails'
-gem 'gmaps4rails'
 
 #Jquery UI
 gem 'jquery-ui-rails'
