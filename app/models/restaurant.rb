@@ -33,11 +33,16 @@ class Restaurant < ActiveRecord::Base
     Inspection.where(restaurant_id: self.id).order(grade_date: :desc).first.current_grade
   end
 
-  def last_inspection_date
+  def time_since_inspection
+    seconds = Time.now - self.last_inspection_date
+    (seconds / 604800).round
+  end
+
+  def last_inspection_date 
     self.inspections.order(inspection_date: :desc).first.inspection_date
   end
 
-  def last_inspections
+  def last_violations
     violation_codes = {
       "01B" => "Current valid permit, registration or other authorization to operate Temporary Food Service Establishment is not available.",
       "01C" => "Notice of the Department or Board mutilated, obstructed, or removed.",
@@ -72,13 +77,42 @@ class Restaurant < ActiveRecord::Base
       "04G" => "Unprotected potentially hazardous food re-served.",
       "04H" => "Food in contact with utensil, container, or pipe that consist of toxic material.",
       "04I" => "Cooked or prepared food is cross-contaminated.",
-      "04J" => "Unprotected food re-served."
+      "04J" => "Unprotected food re-served.",
+      "04K" => "Appropriately scaled metal stem-type thermometer not provided or used to evaluate temperatures of potentially hazardous foods during cooking, cooling, reheating and holding.",
+      "04L" => "Evidence of rats or live rats present in facility's food and/or non-food areas.",
+      "04M" => "Evidence of mice or live mice present in facility's food and/or non-food areas.",
+      "04N" => "Evidence of roaches or live roaches present in facility's food and/or non-food areas.",
+      "04O" => "Evidence of flying insects or live flying insects present in facility's food and/or non-food areas.",
+      "04P" => "Other live animal present in facility's food and/or non-food areas.",
+      "05A" => "Sewage disposal system improper or unapproved.",
+      "05B" => "Harmful, noxious gas or vapor detected. CO > 13 ppm.",
+      "05C" => "Food contact surface improperly constructed or located. Unacceptable material used.",
+      "05D" => "Hand washing facility not provided in or near food preparation area and toilet room. Hot and cold running water at adequate pressure not provided at facility. Soap and an acceptable hand-drying device not provided.",
+      "05E" => "Toilet facility not provided for employees or for patrons when required.",
+      "05F" => "Refrigerated or hot holding equipment to keep potentially hazardous foods at required temperatures not provided.",
+      "05G" => "Sufficient refrigerated or hot holding equipment not provided to meet proper time and temperature requirements for potentially hazardous foods.",
+      "05H" => "Properly enclosed service/maintenance area not provided.",
+      "05I" => "No facility available to wash, rinse, and sanitize utensils and/or equipment not provided.",
+      "05J" => "Nuisance created or allowed to exist. Facility not free from unsafe, hazardous, offensive or annoying condition.",
+      "06A" => "Personal cleanliness inadequate. Outer garment soiled with possible contaminant.  Effective hair restraint not worn in an area where food is prepared.",
+      "06B" => "Tobacco use, eating, drinking in food preparation, food storage or dishwashing area observed.",
+      "06C" => "Food not protected from potential source of contamination during storage, preparation, transportation, display or service.",
+      "06F" => "Wiping cloths dirty or not stored in sanitizing solution.",
+      "07A" => "Sewage disposal system improper or unapproved.",
+      "07B" => "Garbage receptacles not provided or inadequate. Garbage storage area not properly constructed or maintained; grinder or compactor dirty.",
+      "07F" => "Personal Hygiene and other food protection",
+      "08A" => "Facility not vermin proof. Harborage or conditions conducive to vermin exist.",
+      "08B" => "Tobacco use, eating, drinking in food preparation, food storage or dishwashing area observed.",
+      "09A" => "Canned food product observed severely dented.",
+      "09B" => "Milk or milk product undated, improperly dated or expired.",
+      "09C" => "Thawing procedures improper.",
+      "09D" => "Food contact surface not properly maintained."
     }
     violations = []
     Inspection.where(inspection_date: self.last_inspection_date, restaurant_id: self.id).each do |i|
       violations << violation_codes[i.violation_code]
     end
-    violations
+    violations.compact!
   end
 
 
