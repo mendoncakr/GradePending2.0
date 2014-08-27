@@ -18,20 +18,12 @@ var addFavorite = function(id) {
 			$(this).fadeOut(3000);  })
 	})};
 
-	$(function(){
-		$("#add_favorite").on("click", function(e){
-			e.preventDefault();	
-			var restaurantID = $('#add_favorite').data("restaurant");  // Setting restaurant ID here for now, need to set up even delegation as we are currently binding to element before it is created in the DOM
-			addFavorite(restaurantID);
-		});
+function restaurantAjax (callback){
+	var id = document.URL.split('/').pop();
+	$.get ('/restaurants/' +id+ '.json').success(function (data) {
+		callback (data)
 	});
-
-	function restaurantAjax (callback){
-		var id = document.URL.split('/').pop();
-		$.get ('/restaurants/' +id+ '.json').success(function (data) {
-			callback (data)
-		});
-	}
+}
 
 			
 function initialize2(data) {
@@ -53,18 +45,18 @@ function initialize2(data) {
 		});
 }
 	
+$(function(){
+	$('.restaurant').addClass('animated fadeInLeft');
 
+	if (document.getElementById('map-canvas2') !== null) {
+		restaurantAjax(function(response) {
+			initialize2(response);
+		});
+	}
+$("#add_favorite").on("click", function(e){
+	e.preventDefault();	
+	var restaurantID = $('#add_favorite').data("restaurant");  // Setting restaurant ID here for now, need to set up even delegation as we are currently binding to element before it is created in the DOM
+	addFavorite(restaurantID);
+});
 
-
-
-	$(function(){
-		$('.restaurant').addClass('animated fadeInLeft');
-
-		if (document.getElementById('map-canvas2') !== null) {
-			restaurantAjax(function(response) {
-				initialize2(response);
-			});
-
-		}
-
-	})
+})
