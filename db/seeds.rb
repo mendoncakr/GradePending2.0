@@ -30,17 +30,7 @@ require 'csv'
 # 	)
 # 	inspection_counter += 1
 # end
- 																												
-
-# Add inspections to their respective restaurants
-counter = 0
-Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
-	p ins.phone
-	r = Restaurant.find_by(phone: ins.phone)
-	r.inspections << ins
-	p counter
-	counter += 1
-end
+ 																											
 
 #Write coords to new file 
 

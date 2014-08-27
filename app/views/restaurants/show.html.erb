@@ -26,8 +26,10 @@
 	<div id="map-canvas2"></div>
 	<div id="inspections_info">
 		<%= @restaurant.time_since_inspection %> weeks since last inspection.<br>
-			<% @restaurant.last_violations.each_with_index do |r, i| %>
-			<%= "#{i+1}"%> <%= r unless r == nil %><br>
+			<% unless @restaurant.last_violations == nil %>
+				<% @restaurant.last_violations.each_with_index do |r, i| %>
+				<%= "#{i+1}."%> <%= r  %><br>
+				<% end %>
 			<% end %>
 
 

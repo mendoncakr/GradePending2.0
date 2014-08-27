@@ -30,6 +30,17 @@
 		end
 	end
 
+	task :save_inspections => :environment do 
+		counter = 0
+		Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+			p ins.phone
+			r = Restaurant.find_by(phone: ins.phone)
+			r.inspections << ins
+			p counter
+			counter += 1
+		end
+	end
+
 	task :save_csv => :environment do 
 		CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "address", "latitude", "longitude"]) do |f|
 			Restaurant.where.not(latitude: nil).each do |r|
