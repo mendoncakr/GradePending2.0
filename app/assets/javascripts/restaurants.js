@@ -12,7 +12,7 @@ var addFavorite = function(id) {
 		$('.messages').append(favoritedSuccessfully).fadeIn("slow", function(){ 
 			$(this).fadeOut(3000);
 			$('#add_favorite').hide()
-	  })
+		})
 	}).fail(function(response){
 		$('.messages').append(favoriteAlreadyThere).fadeIn("slow", function(){ 
 			$(this).fadeOut(3000);  })
@@ -26,8 +26,40 @@ var addFavorite = function(id) {
 		});
 	});
 
+	function restaurantAjax (callback){
+		var id = document.URL.split('/').pop();
+		$.get ('/restaurants/' +id+ '.json').success(function (data) {
+			restaurant = data.name;
+			latitude = data.latitude;
+			longitude = data.longitude;
+			myLatlng = new google.maps.LatLng(latitude,longitude);
 
-$(function(){
-	$('.restaurant').addClass('animated fadeInLeft');
+			function initialize() {
+				var mapOptions = {
+					center: new google.maps.LatLng(latitude, longitude),
+					zoom: 15
+				};
 
-})
+				var map = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions);
+				var marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map,
+					title: restaurant.str
+				});
+			}
+			initialize();
+		})
+	}
+
+
+
+
+	$(function(){
+		$('.restaurant').addClass('animated fadeInLeft');
+
+		if (document.getElementById('map-canvas2') !== null) {
+			restaurantAjax();
+
+		}
+
+	})
