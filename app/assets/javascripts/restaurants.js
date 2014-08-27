@@ -53,10 +53,11 @@ $(function(){
 			initialize2(response);
 		});
 	}
-$("#add_favorite").on("click", function(e){
-	e.preventDefault();	
-	var restaurantID = $('#add_favorite').data("restaurant");  // Setting restaurant ID here for now, need to set up even delegation as we are currently binding to element before it is created in the DOM
-	addFavorite(restaurantID);
-});
+	
+	$("#add_favorite").on("click", function(e){
+		e.preventDefault();	
+		var restaurantID = $('#add_favorite').data("restaurant");  // Setting restaurant ID here for now, need to set up even delegation as we are currently binding to element before it is created in the DOM
+		addFavorite(restaurantID);
+	});
 
 })
