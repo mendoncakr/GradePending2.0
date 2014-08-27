@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 		respond_to do |format|
 			format.html
-			format.json {render json: { restaurant: @restaurant.id, user: current_user.id } }
+			format.json {render json: { restaurant: @restaurant.id, user: current_user.id, latitude: @restaurant.latitude, longitude: @restaurant.longitude } }
 		end
 	end
 
