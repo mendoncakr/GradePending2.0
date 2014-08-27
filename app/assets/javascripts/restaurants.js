@@ -27,3 +27,7 @@ var addFavorite = function(id) {
 	});
 
 
+$(function(){
+	$('.restaurant').addClass('animated fadeInLeft');
+
+})
