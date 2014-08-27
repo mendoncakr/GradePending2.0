@@ -35,7 +35,6 @@ var addFavorite = function(id) {
 
 			
 function initialize2(data) {
-	console.log(data)
 	var restaurant = data.name;
 	var latitude = data.latitude;
 	var longitude = data.longitude;
