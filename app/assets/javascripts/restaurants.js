@@ -29,27 +29,29 @@ var addFavorite = function(id) {
 	function restaurantAjax (callback){
 		var id = document.URL.split('/').pop();
 		$.get ('/restaurants/' +id+ '.json').success(function (data) {
-			restaurant = data.name;
-			latitude = data.latitude;
-			longitude = data.longitude;
-			myLatlng = new google.maps.LatLng(latitude,longitude);
-
-			function initialize() {
-				var mapOptions = {
-					center: new google.maps.LatLng(latitude, longitude),
-					zoom: 15
-				};
-
-				var map = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions);
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map,
-					title: restaurant.str
-				});
-			}
-			initialize();
-		})
+			callback (data)
+		});
 	}
+
+			
+function initialize(data) {
+	var restaurant = data.name;
+	var latitude = data.latitude;
+	var longitude = data.longitude;
+	var myLatlng = new google.maps.LatLng(latitude,longitude);
+		var mapOptions = {
+			center: new google.maps.LatLng(latitude, longitude),
+			zoom: 15
+		};
+
+		var map = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions);
+		var marker = new google.maps.Marker({
+			position: myLatlng,
+			map: map,
+			title: restaurant.str
+		});
+}
+	
 
 
 
@@ -58,7 +60,9 @@ var addFavorite = function(id) {
 		$('.restaurant').addClass('animated fadeInLeft');
 
 		if (document.getElementById('map-canvas2') !== null) {
-			restaurantAjax();
+			restaurantAjax(function(response) {
+				initialize(response);
+			});
 
 		}
 
