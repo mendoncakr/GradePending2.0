@@ -38,7 +38,47 @@ class Restaurant < ActiveRecord::Base
   end
 
   def last_inspections
-    Inspection.where(inspection_date: r.inspection_date, restaurant_id: r.id)
+    violation_codes = {
+      "01B" => "Current valid permit, registration or other authorization to operate Temporary Food Service Establishment is not available.",
+      "01C" => "Notice of the Department or Board mutilated, obstructed, or removed.",
+      "01D" => "Failure to comply with an Order of the Board, Commissioner or Department.",
+      "01E" => "Document issued by the Board, Commissioner or Department unlawfully reproduced or altered.",
+      "01F" => "Failure to report occurrences of suspected food borne illness to the Department.",
+      "01G" => "Failure to comply with an Order of the Board, Commissioner or Department.",
+      "01H" => "Duties of an officer of the Department interfered with or obstructed.",
+      "02A" => "Food not cooked to required minimum temperature.",
+      "02B" => "Hot food not held at or above 140°F.",
+      "02C" => "Hot food that has been cooked and refrigerated is being held for service without first being reheated to 165°F or above within 2 hours.",
+      "02D" => "Precooked potentially hazardous food from commercial food processing establishment that is to be heated, is not heated to 140°F within 2 hours.",
+      "02E" => "Whole frozen poultry or poultry breasts, other than a single portion, are being cooked frozen or partially thawed.",
+      "02F" => "Meat, fish or molluscan shellfish served raw or undercooked without prior notification to customer.",
+      "02G" => "Cold food held above 41°F (smoked fish above 38°F) except during necessary preparation.",
+      "02H" => "Food not cooled by an approved method whereby the internal product temperature is reduced from 140°F to 70°F or less within 2 hours and from 70°F to 45°F or less within 4 additional hours.",
+      "02I" => "Food prepared from ingredients at ambient temperature not cooled to 41°F or below within 4 hours.",
+      "02J" => "Reduced oxygen packaged (ROP) foods not cooled by an approved method whereby the internal food temperature is reduced to 38º F within two hours of cooking and if necessary further cooled to a temperature of 34º F within six hours of reaching 38º F.",
+      "03A" => "Food from unapproved or unknown source, spoiled, adulterated, or home canned.",
+      "03B" => "Shellfish not from approved source, improperly tagged/labeled; tags not retained for 90 days.",
+      "03C" => "Eggs found dirty, cracked; liquid, frozen or powdered eggs not pasteurized.",
+      "03D" => "Canned food product observed swollen, leaking, rusted, severely dented.",
+      "03E" => "Potable water system inadequate. Water or ice not potable or from unapproved source. Cross connection in potable water supply system observed.",
+      "03F" => "Unpasteurized milk or milk product present.",
+      "03G" => "Raw food not properly washed prior to serving.",
+      "04A" => "Food Protection Certificate not held by supervisor of food operations.",
+      "04B" => "Food worker prepares food or handles utensil when ill with a disease transmissible by food, or have exposed infected cut or burn on their hand.",
+      "04C" => "Food worker does not use proper utensil to eliminate bare hand contact with food that will not receive adequate additional heat treatment.",
+      "04D" => "Food worker does not wash hands thoroughly after visiting the toilet, coughing, sneezing, smoking, preparing raw foods or otherwise contaminating hands.",
+      "04E" => "Toxic chemical improperly labeled, stored or used so that contamination of food may occur.",
+      "04F" => "Food, food preparation area, food storage area, area used by employees or patrons, contaminated by sewage or liquid waste.",
+      "04G" => "Unprotected potentially hazardous food re-served.",
+      "04H" => "Food in contact with utensil, container, or pipe that consist of toxic material.",
+      "04I" => "Cooked or prepared food is cross-contaminated.",
+      "04J" => "Unprotected food re-served."
+    }
+    violations = []
+    Inspection.where(inspection_date: self.last_inspection_date, restaurant_id: self.id).each do |i|
+      violations << violation_codes[i.violation_code]
+    end
+    violations
   end
 
 
