@@ -50,7 +50,7 @@ function initialize2(data) {
 		var marker = new google.maps.Marker({
 			position: myLatlng,
 			map: map,
-			title: restaurant.str
+			title: restaurant
 		});
 }
 	
