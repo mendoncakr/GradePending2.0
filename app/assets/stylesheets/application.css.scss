@@ -27,14 +27,14 @@
  	margin: 0 auto;
  	text-align: center;
  	width: 800px;
- 	padding-top: 5%;
+ 	z-index: -1;
 
  	h1 {
  		font-family: 'Oswald', sans-serif;
  		font-weight:600;
  		font-size: 7vw;
  		color: white;
- 		margin: 3%;
+ 		margin: 2%;
  	}
  }
 
@@ -53,9 +53,11 @@
 
  .nav {
  	width: 100%;
+ 	height: 75px;
  	padding-top: 0;
  	margin: 0 0 10px;
  	height: 75px;
+
 
  	h1 {
  		float:left;
@@ -64,7 +66,8 @@
  		padding-top: 2%;
  	}
 
- 	#nav_links {
+ 	#nav_links li {
+ 		display: inline-block;
  		font-family: 'Open Sans', sans-serif;
  		font-size: 1.25em;
  		padding-top: 2.5%;

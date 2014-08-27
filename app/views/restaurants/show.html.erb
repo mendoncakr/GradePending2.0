@@ -1,8 +1,8 @@
-<div class="restaurant">
+	<% if flash[:notice] %>
+	<%= flash[:notice] %>
+	<% end %>
 
-		<% if flash[:notice] %>
-		   <%= flash[:notice] %>
-		<% end %>
+<div class="restaurant">
 
 	<div id="current_grade">
 		<%= image_tag "grade_card_a.png" if @restaurant.current_grade == "A"%>
@@ -12,36 +12,28 @@
 	</div>
 
 	<div id="information">
-		<h1><%= @restaurant.name %></h1>
-		<%= @restaurant.address %>
-		<br>
-		<%= @restaurant.phone.to_i %>
+		<h1><%= @restaurant.name.titleize %></h1>
+		<div id="address">
+			<h3>
+				<%= @restaurant.street_address %><br>
+				<%= @restaurant.boro_and_zip %><br>
+				<%= @restaurant.phone.to_i %><br>
+			</h3>
+		</div>
 	</div>
 
-	<div class="yelp_review">
-		<% unless @restaurant.yelp_biz_id == -99999999 %>
-		<img id="user_photo" src="<%= @restaurant.yelp_review_user_image %>">
-		<br>
-		<img  src="<%= @restaurant.yelp_review_rating_url %>">
-		<p><%= @restaurant.yelp_review_user %> says....</p>
+	<div id="inspections_info">
 
-		<p><%= @restaurant.top_yelp_review %></p>
-		<img src="http://s3-media3.fl.yelpcdn.com/assets/2/www/img/3049d7633b6e/developers/reviewsFromYelpRED.gif">
-		<% else %>
-		<p>No Yelp Reviews Found</p>
-		<% end %>
-	</div>
-
-	<div>
-
-		 <% if user_signed_in?  %>
-			<div >
-				<%= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}  %>
-			</div>
-		<% end %>
-		<ol class="messages"></ol>
 	</div>
 </div>
+
+
+
+
+
+
+
+
 
 
 
