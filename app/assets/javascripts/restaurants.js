@@ -34,7 +34,7 @@ var addFavorite = function(id) {
 	}
 
 			
-function initialize(data) {
+function initialize2(data) {
 	var restaurant = data.name;
 	var latitude = data.latitude;
 	var longitude = data.longitude;
@@ -61,7 +61,7 @@ function initialize(data) {
 
 		if (document.getElementById('map-canvas2') !== null) {
 			restaurantAjax(function(response) {
-				initialize(response);
+				initialize2(response);
 			});
 
 		}
