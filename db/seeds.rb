@@ -1,4 +1,5 @@
 require 'csv'
+
 inspection_counter = 0
 restaurant_counter = 0
 
@@ -30,6 +31,7 @@ end
 # 	p counter
 # 	counter += 1
 # end
+
 
 # Write coords to new file 
 

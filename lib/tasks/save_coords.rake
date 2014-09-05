@@ -5,9 +5,11 @@ task :geocode => :environment do
 	end
 end
 
+
 task :save_coords => :environment do 
 	Restaurant.where(latitude: nil) do 
 	end
+
 
 	task :save_to_text => :environment do 
 		filename = File.open(File.join(Rails.root, 'db', 'lat_long.txt') ,'w+')
@@ -27,6 +29,17 @@ task :save_coords => :environment do
 		s.each do |re|
 			r = Restaurant.find_by(name: re)
 			r.fix_name
+		end
+	end
+
+	task :save_inspections => :environment do 
+		counter = 0
+		Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+			p ins.phone
+			r = Restaurant.find_by(phone: ins.phone)
+			r.inspections << ins
+			p counter
+			counter += 1
 		end
 	end
 
