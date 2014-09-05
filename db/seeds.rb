@@ -1,48 +1,37 @@
 require 'csv'
-# file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
-# inspection_counter = 0
-# restaurant_counter = 0
-# CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
-# 	row = row.to_hash
+inspection_counter = 0
+restaurant_counter = 0
 
-# 	r = Restaurant.create(
-# 		name: row["DBA"],hshahaha
-# 		hahahahadfasfdthahahaw
-# 		boro: row["BORO"],
-# 		building: row["BUILDING"],
-# 		street: row["STREET"],
-# 		zipcode: row["ZIPCODE"],
-# 		phone: row["PHONE"],
-# 		cuisine_code: row["CUISINECODE"]
-# 		)
-# 	restaurant_counter += 1
+file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
+CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
+	row = row.to_hash
 
-
-# i = Inspection.create(
-# 	phone: row["PHONE"],
-# 	inspection_date: Chronic.parse(row["INSPDATE"]),
-# 	action: row["ACTION"],
-# 	violation_code: row["VIOLCODE"],
-# 	score: row["SCORE"],
-# 	current_grade: row["CURRENTGRADE"],
-# 	grade_date: Chronic.parse(row["GRADEDATE"]),
-# 	record_date: Chronic.parse(row["RECORDDATE"])
-# 	)
-# 	inspection_counter += 1
-# end
+	i = Inspection.create(
+		phone: row["PHONE"],
+		inspection_date: Chronic.parse(row["INSPDATE"]),
+		action: row["ACTION"],
+		violation_code: row["VIOLCODE"],
+		score: row["SCORE"],
+		current_grade: row["CURRENTGRADE"],
+		grade_date: Chronic.parse(row["GRADEDATE"]),
+		record_date: Chronic.parse(row["RECORDDATE"])
+		)
+	inspection_counter += 1
+	p inspection_counter
+end
  																												
 
 # Add inspections to their respective restaurants
-counter = 0
-Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
-	p ins.phone
-	r = Restaurant.find_by(phone: ins.phone)
-	r.inspections << ins
-	p counter
-	counter += 1
-end
+# counter = 0
+# Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
+# 	p ins.phone
+# 	r = Restaurant.find_by(phone: ins.phone)
+# 	r.inspections << ins
+# 	p counter
+# 	counter += 1
+# end
 
-#Write coords to new file 
+# Write coords to new file 
 
 # filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
 # file = File.open(filename, 'r+') do |f|

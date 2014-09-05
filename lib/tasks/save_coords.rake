@@ -1,12 +1,12 @@
 
-	task :geocode => :environment do 
-		Restaurant.all.find_each(batch_size: 5000) do |r|
-			r.save_coords
-		end
+task :geocode => :environment do 
+	Restaurant.all.find_each(batch_size: 5000) do |r|
+		r.save_coords
 	end
+end
 
-	task :save_coords => :environment do 
-		Restaurant.where(latitude: nil) do 
+task :save_coords => :environment do 
+	Restaurant.where(latitude: nil) do 
 	end
 
 	task :save_to_text => :environment do 
@@ -37,3 +37,4 @@
 			end
 		end
 	end
+end
