@@ -24,6 +24,9 @@ gem 'dotenv-rails', :groups => [:development, :test]
 #YELP gem
 gem 'yelp', require: 'yelp'
 
+#HAML
+gem 'haml'
+
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
