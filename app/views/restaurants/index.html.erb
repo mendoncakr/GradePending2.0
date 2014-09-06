@@ -1,26 +1,19 @@
-/ .animated bounceInDown #logo
-/ 	%h1 GradePending
-/ 	.explore_animate
-/ 		#explore= Explore
-
-
-
-
 <div id="logo" class="animated bounceInDown">
 	<h1>GradePending</h1>
 	<div class="explore_animate">
 		<button id="explore">Explore</button>
-		</div>
+	</div>
 </div>
 
 <div class="map_and_search">
 
 	<div id="map-canvas"></div>
-
-	<%= form_tag restaurants_search_path, :method=> 'get', :class => 'search' do |f| %>
-	<%= text_field_tag :search, "Search" %>
-	<%= submit_tag 'Search', :class => 'search_button' %>
-	<% end %>
+	<div id="search-form">
+		<%= form_tag restaurants_search_path, :method=> 'get', :class => 'search' do |f| %>
+		<%= text_field_tag :search, "Search", :class => 'search_bar' %>
+		<%= submit_tag 'Search', :class => 'search_button' %>
+		<% end %>
+	</div>
 
 </div>
 
