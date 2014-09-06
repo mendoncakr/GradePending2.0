@@ -1,0 +1,14 @@
+#logo{:class => 'animated bounceInDown'}
+	%h1 GradePending
+	.explore_animate
+		%button{:id => 'explore'} Explore
+
+.map_and_search
+	#map-canvas
+	#search-form
+		= form_tag restaurants_search_path, :method=> 'get', :class => 'search' do |f|
+			= text_field_tag :search, "Search", :class => 'search_bar'
+			= submit_tag 'Search', :class => 'search_button'	
+
+
+
