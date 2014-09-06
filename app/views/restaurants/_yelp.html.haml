@@ -15,12 +15,3 @@
 		%div
 			= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}
 %ol.messages
-
-	/ <div>
-	/ 	<%   %>
-	/ 	<div >
-	/ 		<%= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}  %>
-	/ 	</div>
-	/ 	<% end %>
-	/ 	<ol class="messages"></ol>
-	/ </div>
