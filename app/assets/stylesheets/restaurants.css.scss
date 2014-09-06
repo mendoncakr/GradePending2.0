@@ -6,7 +6,7 @@
 .restaurant {
 	font-family: "museo-sans", sans-serif;
 	margin: 0 auto;
-	width: 800px;
+	width: 80%;
 	overflow: auto;
 	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.95);
@@ -46,23 +46,46 @@
 	}
 
 	#search {
-		width: 45%;
+		width: 40%;
 		border-radius: 1px solid #e2e3e4;
 		height: 30px;
 		margin-left: 25%;
 		margin-top: 10px;
-		/*background-color: rgba(0, 147, 178, 0.5);*/
 		border-radius: 5px;
 	}
 
-	.search .search_button {
-		border-radius: 5px;
-		height: 30px;
-		width: 125px;
-		background-color: #e9b654;
-		color:white;	
-		font-size: 14px;
-		border: 0;
+	.search {
+		.search_button {
+			border-radius: 5px;
+			height: 30px;
+			width: 125px;
+			background-color: #e9b654;
+			color:white;	
+			font-size: 14px;
+			border: 0;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.map_and_search {
+			margin: 0 auto;
+			
+			#search {
+			
+			width: 90%;
+			margin: 0 auto;
+			margin-left: 5%;
+			margin-top: 5px;
+			}
+	
+
+			.search_button {
+				
+				display: block;
+				margin: 0 auto;
+				margin-top: 5px;
+			}	
+		}
 	}
 
 	.googft-info-window {

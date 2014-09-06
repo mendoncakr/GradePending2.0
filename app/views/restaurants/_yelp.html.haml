@@ -1,0 +1,26 @@
+.yelp_review
+	- unless @restaurant.yelp_biz_id == -99999999
+		%img{:src => "#{@restaurant.yelp_review_user_image}", :id =>'user_photo'} 
+		%br/
+		%img{:src => "#{@restaurant.yelp_review_rating_url}"} 
+		%p "#{@restaurant.yelp_review_user}" says....
+		%p "#{@restaurant.top_yelp_review}"
+		%img{:src => "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/3049d7633b6e/developers/reviewsFromYelpRED.gif"}
+	- else
+		%p No yelp Reviews Found
+
+	
+%div
+	- if user_signed_in?
+		%div
+			= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}
+%ol.messages
+
+	/ <div>
+	/ 	<%   %>
+	/ 	<div >
+	/ 		<%= link_to "Add to Favorites", add_favorite_restaurant_path, method: :post, :id => 'add_favorite', :remote => true, data: {restaurant: @restaurant.id}  %>
+	/ 	</div>
+	/ 	<% end %>
+	/ 	<ol class="messages"></ol>
+	/ </div>
