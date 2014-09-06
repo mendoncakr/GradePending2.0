@@ -9,7 +9,6 @@ gem "geocoder"
 
 #Chronic for Date Parsing
 gem 'chronic'
-
 gem 'underscore-rails'
 
 #Jquery UI
@@ -17,6 +16,8 @@ gem 'jquery-ui-rails'
 
 #Use Thin instead of WEBrick
 gem 'thin'
+
+gem 'haml'
 
 #Use dotenv for dev/production
 gem 'dotenv-rails', :groups => [:development, :test]

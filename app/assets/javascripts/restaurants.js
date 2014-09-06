@@ -49,7 +49,9 @@ $(function(){
 	$('.restaurant').addClass('animated fadeInLeft');
 
 	if (document.getElementById('map-canvas2') !== null) {
+		console.log('yolo!')
 		restaurantAjax(function(response) {
+			console.log('fuk me')
 			initialize2(response);
 		});
 	}
