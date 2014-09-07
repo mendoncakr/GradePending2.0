@@ -18,9 +18,10 @@
 
 </head>
 <body>
-	
-	<div class="nav">
-		<ul id="nav_links">
+<div class ="grid">	
+	<div class="row">
+			<span class ="nav">
+			<ul id="nav_links">
 			<% if user_signed_in? %>
 				<li><%= link_to "My Favorites", my_account_path %></li>
 				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
@@ -28,18 +29,16 @@
 				<li><%= link_to "Sign up", new_user_registration_path %> </li>
 				<li><%= link_to "Sign in", new_user_session_path %></li>
 			<% end %>
-		</ul>
-	</div>
+		</ul></span>
 
 
 	
 
-<div class="about">
-	<h2>
-		A web application that allows you to view the most current NYC Department of Health and Mental Hygiene’s sanitary inspections grades of restaurants in all five boroughs of New York City
-	</h2>
+	<div class="col-2-3">
+			Grade Pending
+		</div>
+	</div>
 </div>
-
 <%= yield %>
 
 </body>

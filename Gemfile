@@ -9,7 +9,6 @@ gem "geocoder"
 
 #Chronic for Date Parsing
 gem 'chronic'
-
 gem 'underscore-rails'
 
 #Jquery UI
