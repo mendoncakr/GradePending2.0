@@ -25,4 +25,9 @@
 				= r
 				%br/
 
+	#nearby_restaurants
+		- @nearby.each do |restaurant|
+			= restaurant.name.titleize
+			%br/			
+			= restaurant.current_grade
 	

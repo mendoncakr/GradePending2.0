@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		@nearby = Restaurant.where(zipcode: @restaurant.zipcode)
+		@nearby = @restaurant.find_nearby
 		respond_to do |format|
 			format.html
 			format.json {render json: { name: @restaurant.name, restaurant: @restaurant.id, user: current_user.id, latitude: @restaurant.latitude, longitude: @restaurant.longitude } }
