@@ -144,6 +144,11 @@ class Restaurant < ActiveRecord::Base
     end
   end
 
+  def find_nearby
+    restaurant_coordiantes = [self.latitude, self.longitude]
+    bounds = Geokit::Bounds.from_point_and_radius(restaurant_coordiantes, 0.25)
+    restaurants = Restaurant.find_by_sql(['select * from restaurants where latitude >= ? AND longitude >= ? AND latitude <= ? AND longitude <= ? AND cuisine_code = ? LIMIT 10', bounds.sw.lat, bounds.sw.lng, bounds.ne.lat, bounds.ne.lng, self.cuisine_code])
+  end
 
   # Yelp reviews
   def yelp_response

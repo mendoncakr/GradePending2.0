@@ -27,6 +27,9 @@ gem 'yelp', require: 'yelp'
 #HAML
 gem 'haml'
 
+#geokit
+gem 'geokit-rails'
+
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
