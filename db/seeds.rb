@@ -6,19 +6,28 @@ restaurant_counter = 0
 file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
 CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
 	row = row.to_hash
-
-	i = Inspection.create(
-		phone: row["PHONE"],
-		inspection_date: Chronic.parse(row["INSPDATE"]),
-		action: row["ACTION"],
-		violation_code: row["VIOLCODE"],
-		score: row["SCORE"],
-		current_grade: row["CURRENTGRADE"],
-		grade_date: Chronic.parse(row["GRADEDATE"]),
-		record_date: Chronic.parse(row["RECORDDATE"])
-		)
-	inspection_counter += 1
-	p inspection_counter
+	if Chronic.parse(row["INSPDATE"]) >= Chronic.parse("January 1, 2014")
+		r = Restaurant.create(
+			name: row["DBA"],
+			boro: row["BORO"],
+			building: row["BUILDING"],
+			street: row["STREET"],
+			zipcode: row["ZIPCODE"],
+			phone: row["PHONE"],
+			cuisine_code: row["CUISINECODE"]
+			)
+		p restaurant_counter += 1
+		i = Inspection.create(
+			phone: row["PHONE"],
+			inspection_date: Chronic.parse(row["INSPDATE"]),
+			action: row["ACTION"],
+			violation_code: row["VIOLCODE"],
+			score: row["SCORE"],
+			current_grade: row["CURRENTGRADE"],
+			grade_date: Chronic.parse(row["GRADEDATE"]),
+			record_date: Chronic.parse(row["RECORDDATE"])
+			)
+	end
 end
  																												
 

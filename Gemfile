@@ -26,6 +26,12 @@ gem 'yelp', require: 'yelp'
 #HAML
 gem 'haml'
 
+#HighCharts
+gem "highcharts-rails", "~> 3.0.0"
+
+#geokit
+gem 'geokit-rails'
+
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'

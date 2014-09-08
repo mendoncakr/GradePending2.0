@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
 	get '/markers', to: "markers#markers"
 
+	get '/stats', to: 'restaurants#statistics', as: :restaurant_stats, constraints: {:format => /json/}
+
 	
 
 
