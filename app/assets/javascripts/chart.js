@@ -38,7 +38,7 @@ gradesAjax(function(response) {
 },
 series: [{
   type: 'pie',
-  name: 'Browser share',
+  name: 'Restaurant Grade Percentage',
   data: [
   ['A',   response.a],
   ['B',       response.b],
