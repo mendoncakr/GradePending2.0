@@ -24,14 +24,6 @@ function initialize() {
 
 }
 
-var restaurantView = function () {};
-
-restaurantView.prototype.searchBar = function () {
-  return $('.search');
-}
-
-
-
 $(function() {
   var RestaurantView = new restaurantView();
   var search = RestaurantView.searchBar();
