@@ -1,4 +1,4 @@
-function initialize() {
+function initializeLargeMap() {
   var mapOptions = {
     center: new google.maps.LatLng(40.766579, -73.9783445),
     zoom: 15
@@ -29,7 +29,7 @@ $(function() {
 
 
 	if (document.getElementById('map-canvas') !== null) {
-    // initialize();
+    // initializeLargeMap();
   }
    
   var searchWrapper = (function () {
