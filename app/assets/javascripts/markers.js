@@ -43,7 +43,7 @@ $(function() {
     // initialize();
   }
    
-  var searchWrapper = (function yolo () {
+  var searchWrapper = (function () {
     var that = this;
 
     namesAjax(function (response) {
