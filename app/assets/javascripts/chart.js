@@ -33,7 +33,7 @@ $(function () {
       },
       series: [{
         type: 'pie',
-        name: 'Browser share',
+        name: 'Restaurant Inspection Grade',
         data: [
         ['A',   response.a],
         ['B',       response.b],
