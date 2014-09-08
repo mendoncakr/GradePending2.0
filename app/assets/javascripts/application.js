@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require underscore
+//= require highcharts
 //= require_tree
 
 

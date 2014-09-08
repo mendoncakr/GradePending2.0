@@ -29,7 +29,7 @@ class Restaurant < ActiveRecord::Base
   	self.save
   end
 
-  def current_grade
+  def grade
     Inspection.where(restaurant_id: self.id).order(grade_date: :desc).first.current_grade
   end
 

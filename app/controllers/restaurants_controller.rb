@@ -7,6 +7,19 @@ class RestaurantsController < ApplicationController
 			format.json {render json: Hash[Restaurant.all.pluck(:name, :id)]}
 		end
 	end
+	
+	def statistics
+		grades  = Restaurant.all.pluck(:current_grade)
+		a =  grades.select{|x| x == 'A'}.size
+		b = grades.select{|x| x == 'B'}.size
+		c = grades.select{|x| x == 'C'}.size
+		gp = grades.select{|x| x == nil}.size
+		total = grades.size
+		respond_to do |format|
+			format.json {render json: {a: a, b: b, c: c, gp: gp, total: total}}
+			format.html
+		end
+	end
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
@@ -36,5 +49,7 @@ class RestaurantsController < ApplicationController
 			redirect_to :back
 		end
 	end
+
+
 end
 
