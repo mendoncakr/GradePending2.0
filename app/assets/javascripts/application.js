@@ -20,6 +20,7 @@
 
 
 $(function(){
+	//TODO - MOVE THIS OUT OF APP.JS
 	$('.about').hide();
 	$('.map_and_search').hide();
 
@@ -29,7 +30,7 @@ $(function(){
 
 	$("#explore").on("click", function(){
 		$('.map_and_search').fadeIn('slow');
-		initialize()
+		initializeLargeMap()
 		$(this).hide();
 	})
 
