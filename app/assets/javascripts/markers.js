@@ -25,10 +25,7 @@ function initialize() {
 }
 
 $(function() {
-  var RestaurantView = new restaurantView();
-  var search = RestaurantView.searchBar();
-
-	$(document).one("load", function(){ namesAjax(); })
+  $(document).one("load", function(){ namesAjax(); })
 
 
 	if (document.getElementById('map-canvas') !== null) {
@@ -48,7 +45,8 @@ $(function() {
       };
     });
       $('#search').autocomplete({source: sr, change: function (event, ui) {
-        that.id = ui.item.id;   
+        that.id = ui.item.id;
+        console.log(that.id)   
       }})
 
     });

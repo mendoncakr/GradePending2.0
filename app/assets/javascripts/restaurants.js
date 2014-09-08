@@ -26,7 +26,7 @@ function restaurantAjax (callback){
 }
 
 			
-function initialize2(data) {
+function initializeSmallMap(data) {
 	var restaurant = data.name;
 	var latitude = data.latitude;
 	var longitude = data.longitude;
@@ -49,7 +49,7 @@ $(function(){
 	$('.restaurant').addClass('animated fadeInLeft');
 	if (document.getElementById('map-canvas2') !== null) {
 		restaurantAjax(function(response) {
-			initialize2(response);
+			initializeSmallMap(response);
 		});
 	}
 	
