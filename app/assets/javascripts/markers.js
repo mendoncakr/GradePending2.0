@@ -24,7 +24,17 @@ function initialize() {
 
 }
 
+var restaurantView = function () {};
+
+restaurantView.prototype.searchBar = function () {
+  return $('.search');
+}
+
+
+
 $(function() {
+  var RestaurantView = new restaurantView();
+  var search = RestaurantView.searchBar();
 
 	$(document).one("load", function(){ namesAjax(); })
 
@@ -32,27 +42,28 @@ $(function() {
 	if (document.getElementById('map-canvas') !== null) {
     // initialize();
   }
-    
-  namesAjax(function (response) {
-    namesAndIds = response
-    var sr =  $.map(namesAndIds, function (key, value) {
-    	return {
+   
+  var searchWrapper = (function yolo () {
+    var that = this;
+
+    namesAjax(function (response) {
+      var namesAndIds = response;
+      var sr =  $.map(namesAndIds, function (key, value) {
+       return {
         label : value,
         value : value,
         id: key
       };
     });
-    $('#search').autocomplete({source: sr, change: function (event, ui) {
-      id = ui.item.id;   
-    }})
+      $('#search').autocomplete({source: sr, change: function (event, ui) {
+        that.id = ui.item.id;   
+      }})
 
-  });
+    });
 
-  $('.search').on('submit', function (e) {
-  	e.preventDefault()
-  	// var id = document.getElementById('search').value;
-  	window.location = "/restaurants/"+ id
-    
-
-  })
+    $('.search').on('submit', function (e) {
+     e.preventDefault()
+     window.location = "/restaurants/"+ that.id
+   })
+  })();
 });
