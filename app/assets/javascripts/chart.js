@@ -12,11 +12,14 @@ gradesAjax(function(response) {
   chart: {
     plotBackgroundColor: null,
       plotBorderWidth: 1,//null,
-      plotShadow: false
+      plotShadow: false,
   },
   title: {
     text: 'Breakdown of Grades in New York City Restaurants'
   },
+   credits: {
+        enabled: false
+      },
     tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
   },
@@ -40,6 +43,7 @@ series: [{
   ['A',   response.a],
   ['B',       response.b],
   ['C',    response.c],
+  ['Grade Pending', response.gp]
   ]
 }]
 });
