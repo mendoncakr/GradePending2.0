@@ -1,4 +1,5 @@
 var sessionChecker = function () {
+	//TODO FIX ME
 	var explore = document.cookie.split(';').pop()
 	var bool = explore.split('=').pop()
 
