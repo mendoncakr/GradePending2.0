@@ -26,11 +26,10 @@ GoogleMaps = {
   },
 
   initializeSmallMap: function (data) {
-    console.log(data)
-  var restaurant = data.name;
-  var latitude = data.latitude;
-  var longitude = data.longitude;
-  var myLatlng = new google.maps.LatLng(latitude,longitude);
+	  var restaurant = data.name;
+	  var latitude = data.latitude;
+	  var longitude = data.longitude;
+	  var myLatlng = new google.maps.LatLng(latitude,longitude);
     var mapOptions = {
       center: new google.maps.LatLng(latitude, longitude),
       zoom: 15,
