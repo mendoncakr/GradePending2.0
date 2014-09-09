@@ -42,6 +42,8 @@ $(function () {
           ['A',   response.a],
           ['B',       response.b],
           ['C',    response.c],
+          ['Grade Pending',    response.gp],
+          ['Not Yet Graded',    response.no_grade]
           ]
         }]
       });

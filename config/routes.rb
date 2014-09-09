@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- devise_for :users  
+ devise_for :users
 
 	root to: "restaurants#index"
 
@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
 	#User Routes
 	get '/users/home', to: "users#index", as: :my_account
+
 end
 

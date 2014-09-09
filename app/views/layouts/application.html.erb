@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Grade Pending 2.0</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI">
-    </script>
-    <script type="text/javascript" src="http://gmaps-utility-gis.googlecode.com/svn/trunk/fusiontips/src/fusiontips.js"></script>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+	<title>Grade Pending 2.0</title>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI">
+	</script>
+	<script type="text/javascript" src="http://gmaps-utility-gis.googlecode.com/svn/trunk/fusiontips/src/fusiontips.js"></script>
+	<%= javascript_include_tag 'application' %>
+	<%= csrf_meta_tags %>
 
-	 <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
-	 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	 <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
 
-	  <link rel="stylesheet" src="animate.min.css">
+	<link rel="stylesheet" src="animate.min.css">
 
 </head>
 <body>
-<div class ="grid">	
-	<div class="row">
-			<span class ="nav">
+	<div class ="grid">	
+		<div class ="nav">
 			<ul id="nav_links">
-			<% if user_signed_in? %>
+				<% if @enable_nav %>
+					<h1>Grade Pending</h1>
+				<% end %>
+				<% if user_signed_in? %>
 				<li><%= link_to "My Favorites", my_account_path %></li>
 				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
-			<% else %>
+				<% else %>
 				<li><%= link_to "Sign up", new_user_registration_path %> </li>
 				<li><%= link_to "Sign in", new_user_session_path %></li>
-			<% end %>
-		</ul></span>
-
-
-	
-
-	<div class="col-2-3">
-			Grade Pending
+				<% end %>
+			</ul>
 		</div>
-	</div>
-</div>
-<%= yield %>
 
-</body>
-</html>
+
+
+
+			<div class="col-2-3">
+				
+			</div>
+		</div>
+		<%= yield %>
+
+	</body>
+	</html>

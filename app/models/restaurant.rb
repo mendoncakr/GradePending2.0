@@ -30,7 +30,9 @@ class Restaurant < ActiveRecord::Base
   end
 
   def grade
-    Inspection.where(restaurant_id: self.id).order(grade_date: :desc).first.current_grade
+    Inspection.where(restaurant_id: self.id).order(grade_date: :desc).each do |r|
+      return r.current_grade unless r.current_grade == nil
+    end
   end
 
   def time_since_inspection

@@ -50,7 +50,11 @@ end
 task :add_current_grade => :environment do 
 	counter = 0
 	Restaurant.find_each(batch_size: 5000) do |rest|
-		rest.current_grade = rest.grade
+		unless rest.grade.kind_of?(Array)
+			rest.current_grade = rest.grade
+		else
+			rest.current_grade = rest.grade.shift.current_grade
+		end
 		rest.save
 		p counter += 1
 	end
