@@ -26,33 +26,14 @@ function restaurantAjax (callback){
 }
 
 			
-function initialize2(data) {
-	var restaurant = data.name;
-	var latitude = data.latitude;
-	var longitude = data.longitude;
-	var myLatlng = new google.maps.LatLng(latitude,longitude);
-		var mapOptions = {
-			center: new google.maps.LatLng(latitude, longitude),
-			zoom: 15,
-			disableDefaultUI: true
-		};
 
-		var map = new google.maps.Map(document.getElementById("map-canvas2"), mapOptions);
-		var marker = new google.maps.Marker({
-			position: myLatlng,
-			map: map,
-			title: restaurant
-		});
-}
 	
 $(function(){
 	$('.restaurant').addClass('animated fadeInLeft');
-
 	if (document.getElementById('map-canvas2') !== null) {
-		console.log('yolo!')
 		restaurantAjax(function(response) {
-			console.log('fuk me')
-			initialize2(response);
+			var data = response;
+			GoogleMaps.initializeSmallMap(data);
 		});
 	}
 	

@@ -116,6 +116,14 @@
  		}
  	}
  }
+ .nav-animate:hover {
+    -webkit-animation: pulse .8s;
+    animation: pulse .8s;
+}
+#explore:hover {
+	-webkit-animation: pulse .8s;
+	animation: pulse .8s;
+}
 
  #map-canvas {
  	height: 400px;

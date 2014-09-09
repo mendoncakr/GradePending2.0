@@ -17,10 +17,10 @@
 //= require highcharts
 //= require_tree
 
-
-
 $(function(){
+	//TODO - MOVE THIS OUT OF APP.JS
 	$('.about').hide();
+<<<<<<< HEAD
 	$('.map_and_search').hide();
 
 	$('#explore').hover(function(){
@@ -47,4 +47,6 @@ $(function(){
 		}
 	});
 
+=======
+>>>>>>> 425b59d1e482690b5ae75659b50a10ea38d51471
 })
