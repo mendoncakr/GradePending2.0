@@ -19,12 +19,14 @@
 
 $(function(){
 	$("#nav_links").addClass("js").before('<div id="menu">&#9776;</div>');
+	
 	$("#menu").click(function(){
 		$("#nav_links").toggle();
 	});
+
 	$(window).resize(function(){
 		if(window.innerWidth > 768) {
-			$("#nav").removeAttr("style");
+			$("#nav_links").removeAttr("style");
 		}
 	});
 })
