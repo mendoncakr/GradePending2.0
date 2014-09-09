@@ -5,6 +5,7 @@ var sessionChecker = function () {
 
 	if (bool === "false") {
 		$('.map_and_search').fadeIn('slow');
+		
 		if (document.getElementById('map-canvas') !== null) {
 			GoogleMaps.initializeLargeMap();
 		}

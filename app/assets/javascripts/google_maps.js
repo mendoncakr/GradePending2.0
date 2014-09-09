@@ -11,17 +11,18 @@ GoogleMaps = {
         from: '1Tb6rqCR-YqIrvfJ07wIkH0-QFnE26b3U3hriuYkq'
       }
     });
+    
     layer2.setMap(map);
 
     layer2.enableMapTips({
-          select: "'name'", // list of columns to query, typially need only one column.
-          from: '1Tb6rqCR-YqIrvfJ07wIkH0-QFnE26b3U3hriuYkq', // fusion table name
-          geometryColumn: "latitude", // geometry column name
-          suppressMapTips: false, // optional, whether to show map tips. default false
-          delay: 200, // milliseconds mouse pause before send a server query. default 300.
-          tolerance: 8,
-          key: 'AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI'
-        });
+	    select: "'name'", // list of columns to query, typially need only one column.
+	    from: '1Tb6rqCR-YqIrvfJ07wIkH0-QFnE26b3U3hriuYkq', // fusion table name
+	    geometryColumn: "latitude", // geometry column name
+	    suppressMapTips: false, // optional, whether to show map tips. default false
+	    delay: 200, // milliseconds mouse pause before send a server query. default 300.
+	    tolerance: 8,
+	    key: 'AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI'
+    });
 
   },
 
