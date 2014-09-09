@@ -22,20 +22,11 @@
 	<div class="nav">
 		<ul id="nav_links">
 			<% if user_signed_in? %>
-<<<<<<< HEAD
-			<li><%= link_to "My Favorites", my_account_path %></li>
-			<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
-			<% else %>
-			<li><%= link_to "Sign up", new_user_registration_path %> </li>
-		
-			<li><%= link_to "Sign in", new_user_session_path %></li>
-=======
 				<li class='nav-animate'><%= link_to "My Favorites", my_account_path %></li>
 				<li class='nav-animate'><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
 			<% else %>
 				<li class="nav-animate"><%= link_to "Sign up", new_user_registration_path %> </li>
 				<li class="nav-animate"><%= link_to "Sign in", new_user_session_path %></li>
->>>>>>> 425b59d1e482690b5ae75659b50a10ea38d51471
 			<% end %>
 		</ul>
 	</div>
