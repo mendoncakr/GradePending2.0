@@ -22,7 +22,7 @@
 $(function(){
 	//TODO - MOVE THIS OUT OF APP.JS
 	$('.about').hide();
-	$('.map_and_search').hide();
+	// $('.map_and_search').hide();
 
 	$('#explore').hover(function(){
 		$(this).addClass('animated pulse');
