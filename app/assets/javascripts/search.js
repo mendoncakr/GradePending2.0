@@ -7,7 +7,7 @@ function namesforSearchAjax (callback) {
 
 $(function() {
   $(document).one("load", function(){ namesAjax(); })
-   
+  
   var searchWrapper = (function () {
     var that = this;
 
@@ -34,5 +34,5 @@ $(function() {
   })();
 });	
 
-	
+
 
