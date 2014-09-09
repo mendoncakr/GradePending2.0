@@ -17,16 +17,14 @@
 //= require highcharts
 //= require_tree
 
-
-
 $(function(){
 	//TODO - MOVE THIS OUT OF APP.JS
 	$('.about').hide();
 
-	$('#explore').hover(function(){
-		$(this).addClass('animated pulse');
-	})
-	$('#nav_links li').hover(function(){
-		$(this).addClass('animated pulse');
-	})
+	// $('#explore').hover(function(){
+	// 	$(this).addClass('animated pulse');
+	// })
+	// $('#nav_links li').hover(function(){
+	// 	$(this).addClass('animated pulse');
+	// })
 })
