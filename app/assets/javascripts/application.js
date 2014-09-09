@@ -22,18 +22,10 @@
 $(function(){
 	//TODO - MOVE THIS OUT OF APP.JS
 	$('.about').hide();
-	// $('.map_and_search').hide();
 
 	$('#explore').hover(function(){
 		$(this).addClass('animated pulse');
 	})
-
-	// $("#explore").on("click", function(){
-	// 	$('.map_and_search').fadeIn('slow');
-	// 	initializeLargeMap()
-	// 	$(this).hide();
-	// })
-
 	$('#nav_links li').hover(function(){
 		$(this).addClass('animated pulse');
 	})
