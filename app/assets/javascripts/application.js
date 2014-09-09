@@ -18,6 +18,13 @@
 //= require_tree
 
 $(function(){
-	//TODO - MOVE THIS OUT OF APP.JS
-	$('.about').hide();
+	$("#nav_links").addClass("js").before('<div id="menu">&#9776;</div>');
+	$("#menu").click(function(){
+		$("#nav_links").toggle();
+	});
+	$(window).resize(function(){
+		if(window.innerWidth > 768) {
+			$("#nav").removeAttr("style");
+		}
+	});
 })
