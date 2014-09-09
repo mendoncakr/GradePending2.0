@@ -1,20 +1,31 @@
+var MapView = {
+	showMap : function () {
+		return $('.map_and_search').fadeIn('slow');
+	}, 
+	hideElement : function (element) {
+		return element.hide()
+	}
+}
+
 var sessionChecker = function () {
 	//TODO FIX ME
 	var explore = document.cookie.split(';').pop()
 	var bool = explore.split('=').pop()
 
 	if (bool === "false") {
-		$('.map_and_search').fadeIn('slow');
-		
+		MapView.showMap();
+
 		if (document.getElementById('map-canvas') !== null) {
 			GoogleMaps.initializeLargeMap();
 		}
-		$('#explore').hide();
+		// $('#explore').hide();
+		MapView.hideElement($('#explore'))
 	} else {
-		$('.map_and_search').hide();
+		MapView.hideElement($('.map_and_search'))
 
 		$("#explore").on("click", function(){
-			$('.map_and_search').fadeIn('slow');
+			MapView.showMap();
+			// $('.map_and_search').fadeIn('slow');
 			GoogleMaps.initializeLargeMap()
 			$(this).hide();
 		})

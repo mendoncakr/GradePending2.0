@@ -1,4 +1,4 @@
-function namesAjax (callback) {
+function namesforSearchAjax (callback) {
 	$.get('restaurants/index.json')
 	.done(function (data) {
 		callback (data)
@@ -11,7 +11,7 @@ $(function() {
   var searchWrapper = (function () {
     var that = this;
 
-    namesAjax(function (response) {
+    namesforSearchAjax(function (response) {
       var namesAndIds = response;
       var sr =  $.map(namesAndIds, function (key, value) {
        return {
