@@ -18,14 +18,12 @@ var sessionChecker = function () {
 		if (document.getElementById('map-canvas') !== null) {
 			GoogleMaps.initializeLargeMap();
 		}
-		// $('#explore').hide();
 		MapView.hideElement($('#explore'))
 	} else {
 		MapView.hideElement($('.map_and_search'))
 
 		$("#explore").on("click", function(){
 			MapView.showMap();
-			// $('.map_and_search').fadeIn('slow');
 			GoogleMaps.initializeLargeMap()
 			$(this).hide();
 		})
