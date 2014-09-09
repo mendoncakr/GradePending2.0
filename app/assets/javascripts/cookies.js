@@ -1,17 +1,19 @@
-sessionChecker = function () {
+var sessionChecker = function () {
 	var explore = document.cookie.split(';').pop()
 	var bool = explore.split('=').pop()
 
 	if (bool === "false") {
 		$('.map_and_search').fadeIn('slow');
-		initializeLargeMap();
+		if (document.getElementById('map-canvas') !== null) {
+			GoogleMaps.initializeLargeMap();
+		}
 		$('#explore').hide();
 	} else {
 		$('.map_and_search').hide();
 
 		$("#explore").on("click", function(){
 			$('.map_and_search').fadeIn('slow');
-			initializeLargeMap()
+			GoogleMaps.initializeLargeMap()
 			$(this).hide();
 		})
 	}
