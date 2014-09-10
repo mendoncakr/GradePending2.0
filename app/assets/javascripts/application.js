@@ -24,7 +24,7 @@ $(function(){
 	});
 	$(window).resize(function(){
 		if(window.innerWidth > 768) {
-			$("#nav").removeAttr("style");
+			$("#nav_links").removeAttr("style");
 		}
 	});
 })
