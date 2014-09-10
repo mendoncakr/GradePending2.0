@@ -22,6 +22,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def show
+		@enable_nav = true
 		@restaurant = Restaurant.find(params[:id])
 		@nearby = @restaurant.find_nearby
 		respond_to do |format|

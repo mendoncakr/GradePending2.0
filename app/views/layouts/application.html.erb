@@ -22,11 +22,15 @@
 	<div class="nav">
 		<ul id="nav_links">
 			<% if user_signed_in? %>
+				<% if @enable_nav %>
+					<h1><%= link_to "Grade Pending", root_path %></h1>
+				<% end %>
 				<li class='nav-animate'><%= link_to "My Favorites", my_account_path %></li>
 				<li class='nav-animate'><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
 			<% else %>
 				<li class="nav-animate"><%= link_to "Sign up", new_user_registration_path %> </li>
 				<li class="nav-animate"><%= link_to "Sign in", new_user_session_path %></li>
+				<li class="nav-animate"><%= link_to "NYC Stats", stats_path %></li>
 			<% end %>
 		</ul>
 	</div>
