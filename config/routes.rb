@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
 	#User Routes
 	get '/users/home', to: "users#index", as: :my_account
+	get '/stats', to: "restaurants#statistics", as: :stats
 end
 
