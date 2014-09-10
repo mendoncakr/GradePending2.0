@@ -17,24 +17,16 @@
 //= require highcharts
 //= require_tree
 
-
-
 $(function(){
-	//TODO - MOVE THIS OUT OF APP.JS
-	$('.about').hide();
-	$('.map_and_search').hide();
+	$("#nav_links").addClass("js").before('<div id="menu">&#9776;</div>');
+	
+	$("#menu").click(function(){
+		$("#nav_links").toggle();
+	});
 
-	$('#explore').hover(function(){
-		$(this).addClass('animated pulse');
-	})
-
-	$("#explore").on("click", function(){
-		$('.map_and_search').fadeIn('slow');
-		initializeLargeMap()
-		$(this).hide();
-	})
-
-	$('#nav_links li').hover(function(){
-		$(this).addClass('animated pulse');
-	})
+	$(window).resize(function(){
+		if(window.innerWidth > 768) {
+			$("#nav_links").removeAttr("style");
+		}
+	});
 })
