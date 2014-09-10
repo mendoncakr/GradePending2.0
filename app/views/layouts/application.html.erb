@@ -22,7 +22,7 @@
 		<div class ="nav">
 			<ul id="nav_links">
 				<% if @enable_nav %>
-					<h1>Grade Pending</h1>
+					<h1><%= link_to "Grade Pending", root_path %></h1>
 				<% end %>
 				<% if user_signed_in? %>
 				<li><%= link_to "My Favorites", my_account_path %></li>

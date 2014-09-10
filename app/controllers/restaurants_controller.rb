@@ -42,6 +42,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def favorite
+		@enable_nav = true
 		@restaurant = Restaurant.find(params[:id])
 		@favorite = FavoriteRestaurant.new(user_id: current_user.id, restaurant_id: @restaurant.id)
 		if @favorite.valid?
