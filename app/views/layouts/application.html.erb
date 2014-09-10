@@ -17,53 +17,25 @@
 	<link rel="stylesheet" src="animate.min.css">
 
 </head>
-<<<<<<< HEAD
-<body>
-	<div class ="grid">	
-		<div class ="nav">
-			<ul id="nav_links">
-				<% if @enable_nav %>
-					<h1><%= link_to "Grade Pending", root_path %></h1>
-				<% end %>
-				<% if user_signed_in? %>
-				<li><%= link_to "My Favorites", my_account_path %></li>
-				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
-				<% else %>
-				<li><%= link_to "Sign up", new_user_registration_path %> </li>
-				<li><%= link_to "Sign in", new_user_session_path %></li>
-				<% end %>
-			</ul>
-		</div>
-
-
-
-
-			<div class="col-2-3">
-				
-			</div>
-		</div>
-		<%= yield %>
-=======
 
 <div class ="grid">	
 	<div class="nav">
 		<ul id="nav_links">
+			<% if @enable_nav %>
+				<h1><%= link_to "Grade Pending", root_path %></h1>
+			<% end %>
 			<% if user_signed_in? %>
-				<% if @enable_nav %>
-					<h1><%= link_to "Grade Pending", root_path %></h1>
-				<% end %>
-				<li class='nav-animate'><%= link_to "My Favorites", my_account_path %></li>
-				<li class='nav-animate'><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
+			<li class='nav-animate'><%= link_to "My Favorites", my_account_path %></li>
+			<li class='nav-animate'><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </li>
 			<% else %>
-				<li class="nav-animate"><%= link_to "Sign up", new_user_registration_path %> </li>
-				<li class="nav-animate"><%= link_to "Sign in", new_user_session_path %></li>
-				<li class="nav-animate"><%= link_to "NYC Stats", stats_path %></li>
+			<li class="nav-animate"><%= link_to "Sign up", new_user_registration_path %> </li>
+			<li class="nav-animate"><%= link_to "Sign in", new_user_session_path %></li>
+			<li class="nav-animate"><%= link_to "NYC Stats", stats_path %></li>
 			<% end %>
 		</ul>
 	</div>
 </div>
-	<%= yield %>
->>>>>>> 47afbd214e082fea56da9d0b6ee031661d3d1712
+<%= yield %>
 
-	</body>
-	</html>
+</body>
+</html>

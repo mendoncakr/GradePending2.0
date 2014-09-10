@@ -46,8 +46,10 @@ $(function () {
           ['Not Yet Graded',    response.no_grade]
           ]
         }]
-      });
+      }
+    } 
+  });
+});
 
-    })
-  }
+}
 });
