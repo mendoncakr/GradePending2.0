@@ -1,3 +1,4 @@
+//TODO - FIXME
 var modal = (function(){
     var 
     method = {},
@@ -51,11 +52,11 @@ var modal = (function(){
 
 
 
-$(function () {
-    $('.nav-animate').click(function (e) {
-        e.preventDefault()
-        console.log('click')
-        
-        modal.open({content: "Yolo"})
-    })
-})
+// $(function () {
+//     $('.nav-animate').click(function (e) {
+//         e.preventDefault()
+//         console.log('click')
+
+//         modal.open({content: "Yolo"})
+//     })
+// })

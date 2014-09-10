@@ -31,7 +31,6 @@ end
 task :save_inspections => :environment do 
 	counter = 0
 	Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
-		p ins.phone
 		r = Restaurant.find_by(phone: ins.phone)
 		r.inspections << ins
 		

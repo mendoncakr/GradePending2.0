@@ -68,18 +68,18 @@ end
 
 # ADD Coordinates to DB:
 
-# filename = File.open(File.join(Rails.root, 'db', 'lat_long.csv'))
-# filename.each do |row|
-# 	p row.split[1]
-# 	p rest = Restaurant.find_by(phone: row.split[1])
+filename = File.open(File.join(Rails.root, 'db', 'lat_long.csv'))
+filename.each do |row|
+	p row.split[1]
+	p rest = Restaurant.find_by(phone: row.split[1])
 
-# 	if rest.phone == nil
-# 		puts "*"*100
-# 	else
-# 		p rest.id
-# 		rest.update(latitude: row.split[3], longitude: row.split[5])
-# 	end
-# end
+	if rest.phone == nil
+		puts "*"*100
+	else
+		p rest.id
+		rest.update(latitude: row.split[3], longitude: row.split[5])
+	end
+end
 
 
 

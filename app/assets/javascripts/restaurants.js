@@ -31,7 +31,6 @@ function restaurantAjax (callback){
 $(function(){
 	$('.restaurant').addClass('animated fadeInLeft');
 	if (document.getElementById('map-canvas2') !== null) {
-		console.log('not null map2')
 		restaurantAjax(function(response) {
 			var data = response;
 			GoogleMaps.initializeSmallMap(data);
