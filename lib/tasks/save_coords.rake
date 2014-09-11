@@ -31,7 +31,6 @@ end
 task :save_inspections => :environment do 
 	counter = 0
 	Inspection.where(restaurant_id: nil).find_each(batch_size: 5000) do |ins|
-		p ins.phone
 		r = Restaurant.find_by(phone: ins.phone)
 		r.inspections << ins
 		
@@ -58,5 +57,15 @@ task :add_current_grade => :environment do
 		rest.save
 		p counter += 1
 	end
+end
+
+desc "Pings PING_URL to keep a dyno alive"
+task :dyno_ping do
+  require "net/http"
+
+  if ENV['PING_URL']
+    uri = URI(ENV['PING_URL'])
+    Net::HTTP.get_response(uri)
+  end
 end
 

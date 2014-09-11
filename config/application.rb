@@ -1,5 +1,5 @@
 require File.expand_path('../boot', __FILE__)
-
+# require File.expand_path('../lib/rack/health')
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -8,9 +8,12 @@ Bundler.require(*Rails.groups)
 
 module GradePending
   class Application < Rails::Application
+
     #compresses HTML, JSON and other Rails-generated responses
     config.middleware.use Rack::Deflater
     
+    require Rails.root.join('lib/rack-health')
+    config.middleware.insert_before Rack::Sendfile, Rack::Health, routes: ['/ping', '/PING'], response: ['PONG']
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
