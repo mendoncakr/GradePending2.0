@@ -34,22 +34,21 @@ $(function () {
           style: {
             color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
           }
-        },
-        series: [{
-          type: 'pie',
-          name: 'Restaurant Inspection Grade',
-          data: [
-          ['A',   response.a],
-          ['B',       response.b],
-          ['C',    response.c],
-          ['Grade Pending',    response.gp],
-          ['Not Yet Graded',    response.no_grade]
-          ]
-        }]
+        }
       }
-    } 
+    },
+    series: [{
+      type: 'pie',
+      name: 'Restaurant Grade Percentage',
+      data: [
+      ['A',   response.a],
+      ['B',       response.b],
+      ['C',    response.c],
+      ['Grade Pending', response.gp],
+      ['Not Yet Graded', response.no_grade]
+      ]
+    }]});
   });
+  }
 });
-
-}
-});
+      
