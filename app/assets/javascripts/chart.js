@@ -56,14 +56,14 @@ $(function () {
         type: 'column'
       },
       title: {
-        text: 'Most common violations in 2014'
+        text: 'Commonly Issued Violations in 2014'
       },
       xAxis: {
         type: 'category',
         labels: {
           rotation: -45,
           style: {
-            fontSize: '13px',
+            fontSize: '8px',
             fontFamily: 'Verdana, sans-serif'
           }
         }
@@ -71,24 +71,39 @@ $(function () {
       yAxis: {
         min: 0,
         title: {
-          text: 'Population (millions)'
+          text: 'Violations since 01/01/2014'
         }
+      },
+      credits: {
+        enabled: false,
       },
       legend: {
         enabled: false
       },
       tooltip: {
-        pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+        pointFormat: 'Total Violations Issued in 2014: <b>{point.y} </b>'
       },
       series: [{
         name: 'Inspections: ',
         data: [
         ['Thawing Procedures improper.', response.inspections['09C']],
-        ['Tobacco use, eating, drinking in food prep area.', response.inspections['06B']]
+        ['Hot food not held at or above 140°F', response.inspections['02B']],
+        ['Food protection certificate not held by supervisor.', response.inspections['04A']],
+        ['Tobacco use, eating, drinking in food prep area.', response.inspections['06B']],
+        ['Cold food held above 41°F', response.inspections['02G']],
+        ['Food in contact with utensil, container, or pipe that consists of toxic material.', response.inspections['02H']],
+        ['Food not protected from potential source of contamination.', response.inspections['06C']],
+        ['Unprotected food re-served.', response.inspections['04J']],
+        ['Evidence of rats or live rats found.', response.inspections['04L']],
+        ['Evidence of mice or live mice found.', response.inspections['04M']],
+        ['Evidence of roaches or live roaches found.', response.inspections['04N']]
+        ['Facility not vermin proof.', response.inspections['08A']],
+        ['Personal cleanliness inadequate.', response.inspections['06A']],
+        ['Hand washing facility not provided in food prep area.', response.inspections['05D']],
 
         ],
         dataLabels: {
-          enabled: true,
+          enabled: false,
           rotation: -90,
           color: '#FFFFFF',
           align: 'right',
