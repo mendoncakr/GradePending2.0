@@ -12,6 +12,10 @@ class RestaurantsController < ApplicationController
 	def statistics
 		@enable_nav = true
 		grades  = Restaurant.all.pluck(:current_grade)
+		inspection_list = {}
+		Inspection.all.pluck(:violation_code).flatten.each do |i|
+			inspection_list.has_key?(i) ? (inspection_list[i] += 1) : (inspection_list[i] = 1)
+		end
 		a =  grades.select{|x| x == 'A'}.size
 		b = grades.select{|x| x == 'B'}.size
 		c = grades.select{|x| x == 'C'}.size
@@ -19,7 +23,7 @@ class RestaurantsController < ApplicationController
 		no_grade = grades.select{|x| x == nil}.size
 		total = grades.size
 		respond_to do |format|
-			format.json {render json: {a: a, b: b, c: c, gp: gp, no_grade: no_grade, total: total}}
+			format.json {render json:  {a: a, b: b, c: c, gp: gp, no_grade: no_grade, total: total, inspections: inspection_list}}
 			format.html
 		end
 	end
