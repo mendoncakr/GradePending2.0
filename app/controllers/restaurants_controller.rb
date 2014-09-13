@@ -5,13 +5,17 @@ class RestaurantsController < ApplicationController
 		@enable_nav = false
 		respond_to do |format|
 			format.html
-			format.json {render json: Hash[Restaurant.all.pluck(:name, :id)]}
+			format.json {render json: Hash[Restaurant.names_and_ids_cache]}
 		end
 	end
 	
 	def statistics
 		@enable_nav = true
 		grades  = Restaurant.all.pluck(:current_grade)
+		inspection_list = {}
+		Inspection.violation_cache.each do |i|
+			inspection_list.has_key?(i) ? (inspection_list[i] += 1) : (inspection_list[i] = 1)
+		end
 		a =  grades.select{|x| x == 'A'}.size
 		b = grades.select{|x| x == 'B'}.size
 		c = grades.select{|x| x == 'C'}.size
@@ -19,7 +23,7 @@ class RestaurantsController < ApplicationController
 		no_grade = grades.select{|x| x == nil}.size
 		total = grades.size
 		respond_to do |format|
-			format.json {render json: {a: a, b: b, c: c, gp: gp, no_grade: no_grade, total: total}}
+			format.json {render json:  {a: a, b: b, c: c, gp: gp, no_grade: no_grade, total: total, inspections: inspection_list}}
 			format.html
 		end
 	end
@@ -30,7 +34,7 @@ class RestaurantsController < ApplicationController
 		@nearby = @restaurant.find_nearby
 		respond_to do |format|
 			format.html
-			format.json {render json: { name: @restaurant.name, restaurant: @restaurant.id, user: current_user.id, latitude: @restaurant.latitude, longitude: @restaurant.longitude } }
+			format.json {render json: { name: @restaurant.name, restaurant: @restaurant.id, user: current_user.id, latitude: @restaurant.latitude, longitude: @restaurant.longitude}}
 		end
 	end
 
