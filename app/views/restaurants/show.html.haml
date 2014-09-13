@@ -34,15 +34,15 @@
 
 
 	.right_side
-		#map-canvas2{:style=> "width:250px; height:250px;"}
+		#map-canvas2{:style=> "width:250px; height:250px; border-radius: 5px"}
 		%br/
 		%br/
 		%h3 NEARBY RESTAURANTS
 		%table
-			- @nearby.each do |restaurant|
+			- @nearby.each do |restaurant| 
 				%tr
 					%td
-						= restaurant.name
+						= restaurant.name 
 					%td{:id => "nearby_grade"}
 						= restaurant.grade
 
