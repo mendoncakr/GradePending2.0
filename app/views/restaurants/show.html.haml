@@ -1,33 +1,28 @@
 - if flash[:notice]
 	- flash[:notice]
 
+.restaurant_container
+	.restaurant
+		#current_grade
+			= render :partial => "current"
+		#information
+			%h1= @restaurant.name.titleize 
+			#address
+				%h5
+					= @restaurant.address
 
-.restaurant
-	#information
-		%h1= @restaurant.name.titleize 
-		#address
-			%h3
-				= @restaurant.street_address 
-				%br/
-				= @restaurant.boro_and_zip 
-				%br/
-				= @restaurant.phone.to_i  
-				%br/
+	.right_side
+		#map-canvas2{:style=> "width:250px; height:250px;"}
+		%h3 NEARBY RESTAURANTS
+		%table
+			%tbody
+			- @nearby.each do |restaurant|
+				%tr
+					%td
+						= restaurant.name
+					%td 
+						= restaurant.grade
 
-	#map-canvas2{:style=> "width:250px; height:250px;"}
-	#inspections_info
-		= @restaurant.time_since_inspection  
-		weeks since last inspection.
-		%br/
-		- unless @restaurant.last_violations == nil
-			- @restaurant.last_violations.each_with_index do |r, i|
-				= "#{i+1}." 
-				= r
-				%br/
 
-	#nearby_restaurants
-		- @nearby.each do |restaurant|
-			= restaurant.name.titleize
-			%br/			
-			= restaurant.current_grade
 	
+
