@@ -1,0 +1,4 @@
+<%= image_tag "grade_card_a.png" if @restaurant.current_grade == "A"%>
+<%= image_tag "grade_card_b.png" if @restaurant.current_grade == "B"%>
+<%= image_tag "grade_card_c.png" if @restaurant.current_grade == "C"%>
+<%= image_tag "grade_card_gp.png" if @restaurant.current_grade == nil %>

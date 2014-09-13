@@ -29,7 +29,6 @@ function restaurantAjax (callback){
 
 	
 $(function(){
-	$('.restaurant').addClass('animated fadeInLeft');
 	if (document.getElementById('map-canvas2') !== null) {
 		restaurantAjax(function(response) {
 			var data = response;
