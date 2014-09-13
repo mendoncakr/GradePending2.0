@@ -57,12 +57,12 @@
 # 	p r
 # end
 
-# filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
-# CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
-# 	Restaurant.where.not(latitude: nil).each do |r|
-# 		f << ["#{r.id}", "#{r.name.strip}", "#{r.address}", "#{r.latitude}", "#{r.longitude}"]
-# 	end
-# end
+filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
+CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
+	Restaurant.where.not(latitude: nil).each do |r|
+		f << ["#{r.id}", "#{r.name.strip}", "#{r.address}", "#{r.latitude}", "#{r.longitude}"]
+	end
+end
 
 
 
