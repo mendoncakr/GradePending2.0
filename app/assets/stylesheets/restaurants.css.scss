@@ -59,13 +59,14 @@
 .right_side {
 	width: 25%;
 	float: right;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
 
 	h3 {
+		text-align: center;
 	}
 
 	table {
-		font-family: 'Open Sans', sans-serif;
-		color: white;
 
 		tr {
 			width: 100%;
@@ -73,11 +74,10 @@
 		}
 
 		td {
-			padding-right: 15%;
-			#nearby_grade img {
-				width: 50px;
-				height: 50px;
-			}
+		}
+
+		#nearby_grade {
+			padding-left: 20%;
 		}
 	}
 }
