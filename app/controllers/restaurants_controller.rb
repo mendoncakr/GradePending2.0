@@ -34,7 +34,7 @@ class RestaurantsController < ApplicationController
 		@nearby = @restaurant.find_nearby
 		respond_to do |format|
 			format.html
-			format.json {render json: { name: @restaurant.name, restaurant: @restaurant.id, user: current_user.id, latitude: @restaurant.latitude, longitude: @restaurant.longitude}}
+			format.json {render json: { name: @restaurant.name, restaurant: @restaurant.id, latitude: @restaurant.latitude, longitude: @restaurant.longitude } }
 		end
 	end
 
