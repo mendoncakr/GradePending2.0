@@ -159,29 +159,4 @@ class Restaurant < ActiveRecord::Base
     Restaurant.where(cuisine_code: self.cuisine_code).pluck(:current_grade)
   end
 
-  # Yelp reviews
-  def yelp_response
-    @response  ||= Yelp.client.business(self.yelp_biz_id)
-  end
-
-  def top_yelp_review
-    yelp_response.reviews.first.excerpt
-  end
-
-  def yelp_review_user
-    yelp_response.reviews.first.user.name
-  end
-
-  def yelp_review_user_image
-    yelp_response.reviews.first.user.image_url
-  end
-
-  def yelp_review_rating_url
-    yelp_response.reviews.first.rating_image_large_url
-  end
-  
-  def yelp_biz_id
-    @client_response ||= Yelp.client.search(self.borough, self.restaurant_name)
-    @client_response.businesses[0] == nil ?  -99999999 : @client_response.businesses[0].id 
- end
 end
