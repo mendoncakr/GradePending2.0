@@ -4,4 +4,5 @@ class Inspection < ActiveRecord::Base
   def self.violation_cache
   	Rails.cache.fetch('violation_code') { all.pluck(:violation_code).flatten }
   end
+  
 end
