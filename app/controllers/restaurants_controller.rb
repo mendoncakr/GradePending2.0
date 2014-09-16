@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+	include RestaurantsHelper
 	before_action :authenticate_user!, :only => [:favorite]
 
 	def index
@@ -33,6 +34,7 @@ class RestaurantsController < ApplicationController
 		@enable_nav = true
 		@restaurant = Restaurant.find(params[:id])
 		@nearby = @restaurant.find_nearby
+		@restaurant_cuisine = cuisine_codes_hash(@restaurant.cuisine_code)
 		grade_count = @restaurant.find_all_with_cusine_code
 		similar_grades = {}
 		grade_count.each do |i|
@@ -43,11 +45,12 @@ class RestaurantsController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.json {render json: { 
-				name: @restaurant.name, 
+				name: @restaurant.name.titleize, 
 				restaurant: @restaurant.id, 
 				latitude: @restaurant.latitude, 
 				longitude: @restaurant.longitude,
-				grades: similar_grades
+				grades: similar_grades,
+				code: @restaurant_cuisine
 				}}
 		end
 	end
