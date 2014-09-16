@@ -38,7 +38,7 @@
 			- @nearby.each do |restaurant| 
 				%tr
 					%td
-						= restaurant.name 
+						= link_to(restaurant.name, "/restaurants/#{restaurant.id}")
 					%td{:id => "nearby_grade"}
 						= restaurant.grade.is_a?(Array) ? "Not Yet Graded" : restaurant.grade 
 		
