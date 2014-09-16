@@ -36,9 +36,7 @@ class RestaurantsController < ApplicationController
 		grade_count = @restaurant.find_all_with_cusine_code
 		similar_grades = {}
 		grade_count.each do |i|
-			if i == nil
-				i = "no_grade"
-			end
+			i = "No Grade" if i == nil
 			similar_grades.has_key?(i) ? (similar_grades[i] += 1) : (similar_grades[i] = 1)
 		end
 

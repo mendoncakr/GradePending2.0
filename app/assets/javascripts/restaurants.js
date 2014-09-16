@@ -25,14 +25,14 @@ function restaurantAjax (callback){
 	});
 }
 
-			
-
-	
+				
 $(function(){
 	if (document.getElementById('map-canvas2') !== null) {
 		restaurantAjax(function(response) {
 			var data = response;
+			// console.log(data)
 			GoogleMaps.initializeSmallMap(data);
+			highCharts.similarlyGraded(data);
 		});
 	}
 	
