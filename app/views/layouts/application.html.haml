@@ -3,9 +3,6 @@
   %head
     %title Grade Pending 2.0
     = stylesheet_link_tag    'application', media: 'all'
-    %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI", :type => "text/javascript"}
-      :cdata
-    %script{:src => "http://gmaps-utility-gis.googlecode.com/svn/trunk/fusiontips/src/fusiontips.js", :type => "text/javascript"}
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
@@ -16,6 +13,9 @@
     %link{:rel => "stylesheet", :src => "modal.css"}/
     %script{:src => "http://code.highcharts.com/modules/funnel.js"}
     %script{:src => "http://code.highcharts.com/modules/exporting.js"}
+    %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBhUWJ1yNQ8jFdmSGBUjvn7ol2zB_nkdtI", :type => "text/javascript"}
+      :cdata
+    %script{:src => "http://gmaps-utility-gis.googlecode.com/svn/trunk/fusiontips/src/fusiontips.js", :type => "text/javascript"}
   %body
     .grid
       .nav
