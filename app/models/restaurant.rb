@@ -5,9 +5,7 @@ class Restaurant < ActiveRecord::Base
 
   validates_uniqueness_of :phone
   geocoded_by :address
-  
-  scope :manhattan, -> { Restaurant.where(zipcode:  ["10026", "10027", "10030", "10037", "10039", "10001", "10011", "10018", "10019", "10020", "10036", "10029", "10035", "10010", "10016", "10017", "10022", "10012", "10013", "10014", "10004", "10005", "10006", "10007", "10038", "10280,", "10002", "10003", "10009", "10021", "10028", "10044", "10128", "10023", "10024", "10025", "10031", "10032", "10033", "10034", "10040"]
-) }
+
   def self.names_and_ids_cache
     Rails.cache.fetch('names_and_ids') { all.pluck(:name, :id) }
   end
@@ -43,7 +41,7 @@ class Restaurant < ActiveRecord::Base
     (seconds / 604800).round
   end
 
-  def last_inspection_date 
+  def last_inspection_date
     self.inspections.order(inspection_date: :desc).first.inspection_date
   end
 
