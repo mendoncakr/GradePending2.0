@@ -3,46 +3,50 @@
 
 .restaurant_container
 	.restaurant
-		#current_grade
-			= render "current"
-		#information
-			%h1= @restaurant.name.titleize 
-			#address
-				%h5
-					= @restaurant.address
-		%br/					
-		= @restaurant.time_since_inspection  
-		weeks since last inspection.
-		%br/
-		%br/
-		#violations
-			%h3 MOST RECENT VIOLATIONS
-			- unless @restaurant.last_violations == nil
-				- @restaurant.last_violations.each_with_index do |violation, index|
-					= "#{index + 1}." 
-					= violation
-					%br/
-
-
-
-
-
-
-
+		#restaurant_details	
+			#information
+				%h1= @restaurant.name.titleize 
+				#address
+					%h5
+						= @restaurant.address
+			#current_grade
+				= render "current"
+			#last_inspection_date					
+				= @restaurant.time_since_inspection  
+				weeks since last inspection.
+			%br/
+			%br/
+			#violations
+				%h3 MOST RECENT VIOLATIONS
+				%br/
+				- unless @restaurant.last_violations == nil
+					- @restaurant.last_violations.each_with_index do |violation, index|
+						%ol 
+							%li 
+								="#{index + 1}." 
+								= violation
+						%br/
+		#similar				
+		= render "similargrade"			
 
 
 	.right_side
-		#map-canvas2{:style=> "width:250px; height:250px;"}
+		#map-canvas2{:style=> "width:250px; height:250px; border-radius: 5px"}
 		%br/
 		%br/
-		%h3 NEARBY RESTAURANTS
+		/ %h3 
+		%br/
 		%table
-			- @nearby.each do |restaurant|
+			%th
+				NEARBY RESTAURANTS
+			- @nearby.each do |restaurant| 
 				%tr
 					%td
-						= restaurant.name
-					%td
-						= restaurant.grade
+						= link_to(restaurant.name, "/restaurants/#{restaurant.id}")
+					%td{:id => "nearby_grade"}
+						= restaurant.grade.is_a?(Array) ? "Not Yet Graded" : restaurant.grade 
+		
+
 
 
 	

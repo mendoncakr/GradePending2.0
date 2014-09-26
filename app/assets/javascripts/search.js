@@ -1,5 +1,5 @@
 function namesforSearchAjax (callback) {
-	$.get('restaurants/index.json')
+	$.get('/restaurants/index.json')
 	.done(function (data) {
 		callback (data)
 	});

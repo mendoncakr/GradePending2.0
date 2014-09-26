@@ -9,6 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
+ *= require bootstrap
  *= require jquery-ui
  *= require_tree .
  *= require_self
@@ -86,8 +87,8 @@
  		z-index: 1;
  	}
  	#nav_links ul:last-child {
-		margin-right: 0;
-	}
+ 		margin-right: 0;
+ 	}
 
  	@media screen and (max-width: 768px) {
  		#menu {
@@ -120,13 +121,13 @@
  	}
  }
  .nav-animate:hover {
-    -webkit-animation: pulse .8s;
-    animation: pulse .8s;
-}
-#explore:hover {
-	-webkit-animation: pulse .8s;
-	animation: pulse .8s;
-}
+ 	-webkit-animation: pulse .8s;
+ 	animation: pulse .8s;
+ }
+ #explore:hover {
+ 	-webkit-animation: pulse .8s;
+ 	animation: pulse .8s;
+ }
 
  #map-canvas {
  	height: 400px;
@@ -167,6 +168,32 @@
  	color:white;	
  	font-size: 14px;
  	border: 0;
+ }
+
+ .border-form-div {
+ 	max-width: 300px;
+ 	padding: 19px 29px 29px;
+ 	margin: 0 auto 20px;
+ 	background-color: #fff;
+ 	border: 1px solid #e5e5e5;
+ 	-webkit-border-radius: 5px;
+ 	-moz-border-radius: 5px;
+ 	border-radius: 5px;
+ 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+ 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+ 	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+ }
+ .border-form-div .form-signin-heading,
+ .border-form-div .checkbox {
+ 	margin-bottom: 10px;
+ }
+ .border-form-div input[type="text"],
+ .border-form-div input[type="email"],
+ .border-form-div input[type="password"] {
+ 	font-size: 16px;
+ 	height: auto;
+ 	margin-bottom: 15px;
+ 	padding: 7px 9px;
  }
 
 
