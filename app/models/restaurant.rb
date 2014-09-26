@@ -10,7 +10,6 @@ class Restaurant < ActiveRecord::Base
     Rails.cache.fetch('names_and_ids') { all.pluck(:name, :id) }
   end
 
-
   def address
   	"#{self.building} " + "#{self.street.strip} " +  "#{self.borough} " + "#{self.zipcode}"
   end

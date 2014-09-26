@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
 			format.json {render json: Hash[Restaurant.names_and_ids_cache]}
 		end
 	end
-	
+
 	def statistics
 		@enable_nav = true
 		grades  = Restaurant.all.pluck(:current_grade)
@@ -17,15 +17,20 @@ class RestaurantsController < ApplicationController
 		Inspection.violation_cache.each do |i|
 			inspection_list.has_key?(i) ? (inspection_list[i] += 1) : (inspection_list[i] = 1)
 		end
-		a =  grades.select{ |x| x == 'A'}.size
-		b =  grades.select{ |x| x == 'B'}.size
-		c =  grades.select{ |x| x == 'C'}.size
-		gp = grades.select{ |x| x == 'Z'}.size
-		no_grade = grades.select{ |x| x == nil}.size
-		total = grades.size
+		grade_count = {}
+		grades.each do |grade|
+			grade_count.has_key?(grade) ? (grade_count[grade] += 1) : (grade_count[grade] = 1)
+		end
+		grade_count['total'] = grades.size
+		# a =  grades.select{ |x| x == 'A'}.size
+		# b =  grades.select{ |x| x == 'B'}.size
+		# c =  grades.select{ |x| x == 'C'}.size
+		# gp = grades.select{ |x| x == 'Z'}.size
+		# no_grade = grades.select{ |x| x == nil}.size
+		# total = grades.size
 
 		respond_to do |format|
-			format.json {render json:  {a: a, b: b, c: c, gp: gp, no_grade: no_grade, total: total, inspections: inspection_list}}
+			format.json {render json:  {grades: grade_count, inspections: inspection_list}}
 			format.html
 		end
 	end
@@ -44,10 +49,10 @@ class RestaurantsController < ApplicationController
 
 		respond_to do |format|
 			format.html
-			format.json {render json: { 
-				name: @restaurant.name.titleize, 
-				restaurant: @restaurant.id, 
-				latitude: @restaurant.latitude, 
+			format.json {render json: {
+				name: @restaurant.name.titleize,
+				restaurant: @restaurant.id,
+				latitude: @restaurant.latitude,
 				longitude: @restaurant.longitude,
 				grades: similar_grades,
 				code: @restaurant_cuisine
@@ -55,7 +60,7 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
-	def search 
+	def search
 		if params["search"]
 			result = Restaurant.search(params["search"].upcase)
 			redirect_to root_path

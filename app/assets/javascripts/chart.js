@@ -1,4 +1,4 @@
-function gradesAjax (callback) { 
+function gradesAjax (callback) {
   $.get('/stats')
   .done(function (response) {
     callback(response)
@@ -8,7 +8,8 @@ function gradesAjax (callback) {
 $(function () {
   if (document.getElementById('container') !== null) {
     gradesAjax(function(response) {
-      console.log(response)
+      var gradePending = response.grades['N'] + response.grades[""]
+      console.log(gradePending)
       $('#container').highcharts({
         chart: {
           plotBackgroundColor: null,
@@ -41,11 +42,11 @@ $(function () {
       type: 'pie',
       name: 'Restaurant Grade Percentage',
       data: [
-      ['A',   response.a],
-      ['B',       response.b],
-      ['C',    response.c],
-      ['Grade Pending', response.gp],
-      ['Not Yet Graded', response.no_grade]
+      ['A',   response.grades['A']],
+      ['B',       response.grades['B']],
+      ['C',    response.grades['C']],
+      ['Grade Pending', response.grades['Z']],
+      ['Not Yet Graded', gradePending]
       ]
     }]
   });
@@ -117,7 +118,7 @@ $(function () {
         }
       }]
     });
- 
+
 });
 
  }

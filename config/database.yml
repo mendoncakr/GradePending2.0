@@ -1,19 +1,21 @@
 development:
   adapter: postgresql
-  host: localhost
-  username:
-  password:
-  database: gradePending_dev
+  host: grade-pending.coe8ua7gofeg.us-west-2.rds.amazonaws.com
+  username: grade_pending
+  password: gotanABorC
+  port: 5432
+  database: gp1
   pool: 5
   timeout: 5000
 
 
 test:
   adapter: postgresql
-  host: localhost
-  username:
-  password:
-  database: gradePending_test
+  host: grade-pending.coe8ua7gofeg.us-west-2.rds.amazonaws.com
+  username: grade_pending
+  password: gotanABorC
+  port: 5432
+  database: gp1
   pool: 5
   timeout: 5000
 
