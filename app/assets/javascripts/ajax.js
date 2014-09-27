@@ -1,12 +1,5 @@
-function gradesAjax (callback) {
-  $.get('/stats')
-  .done(function (response) {
-    callback(response)
-  })
-};
-
-function namesforSearchAjax (callback) {
-  $.get('/restaurants/index.json')
+function getAjax (route, callback) {
+  $.get(route)
   .done(function (data) {
     callback (data)
   });

@@ -1,14 +1,13 @@
 $(function(){
   if (document.getElementById('map-canvas2') !== null) {
-    restaurantAjax(function(response) {
-      var data = response;
-      GoogleMaps.initializeSmallMap(data);
-      highCharts.similarlyGraded(data);
+    getAjax('/restaurants/index.json', function(response) {
+      GoogleMaps.initializeSmallMap(response);
+      highCharts.similarlyGraded(response);
     });
   }
 
   if (document.getElementById('container') !== null) {
-    gradesAjax(function(response) {
+    getAjax('stats', function(response) {
       var gradePending = response.grades['N'] + response.grades[""]
       highCharts.totalGrades(response, gradePending)
       highCharts.commonViolations(response)
@@ -34,18 +33,17 @@ $(function(){
   var searchWrapper = (function () {
     var that = this;
 
-    namesforSearchAjax(function (response) {
+    getAjax('/restaurants/index.json', function (response) {
       var namesAndIds = response;
       var sr =  $.map(namesAndIds, function (key, value) {
        return {
         label : value,
         value : value,
         id: key
-      };
-    });
+        };
+      });
       $('#search').autocomplete({source: sr, change: function (event, ui) {
         that.id = ui.item.id;
-        console.log(that.id)
       }})
 
     });
