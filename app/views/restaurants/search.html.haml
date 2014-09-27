@@ -1,0 +1,5 @@
+- @result.each do |result|
+	= link_to(result.name , "/restaurants/#{result.id}")
+	%br/
+	= result.address
+	%br/

@@ -23,6 +23,9 @@ gem 'haml'
 #HighCharts
 gem "highcharts-rails", "~> 3.0.0"
 
+#Textacular for searching
+gem 'textacular'
+
 
 
 gem 'rails', '4.1.4'

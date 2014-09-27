@@ -27,6 +27,17 @@ class RestaurantsController < ApplicationController
 			format.html
 		end
 	end
+	
+	def search
+		@enable_nav = true
+		if params["search"]
+			@result = Restaurant.basic_search(name: params["search"].upcase)
+			if @result.size == 1 
+				redirect_to restaurants_show_path(@result.first.id, format: :html)
+			end
+			
+		end
+	end
 
 	def show
 		@enable_nav = true
@@ -53,12 +64,6 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
-	def search
-		if params["search"]
-			result = Restaurant.search(params["search"].upcase)
-			redirect_to root_path
-		end
-	end
 
 	def favorite
 		@enable_nav = true

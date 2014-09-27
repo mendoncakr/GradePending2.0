@@ -1,4 +1,5 @@
 $(function(){
+  // Google Maps 
   if (document.getElementById('map-canvas2') !== null) {
     getAjax('/restaurants/index.json', function(response) {
       GoogleMaps.initializeSmallMap(response);
@@ -13,6 +14,7 @@ $(function(){
       highCharts.commonViolations(response)
     });
   }
+  // Responsive Nav Links 
   (function () {
     var navBar = new NavBar($("#nav_links"), $(window), $('#menu'))
     navBar.addClass()
@@ -28,8 +30,7 @@ $(function(){
     addFavorite(restaurantID);
   });
 
-  $(document).one("load", function(){ namesAjax(); })
-
+  // Search Bar Autcomplete 
   var searchWrapper = (function () {
     var that = this;
 
@@ -49,9 +50,15 @@ $(function(){
     });
 
     $('.search').on('submit', function (e) {
-     e.preventDefault()
-     window.location = "/restaurants/"+ that.id
+     // e.preventDefault()
+     // window.location = "/restaurants/"+ that.id
    })
   })();
 
+  //Assign Cookie after clicking explore. 
+
+  sessionChecker();
+    $('#explore').click(function () {
+      document.cookie = "explore=false"
+    })
 })
