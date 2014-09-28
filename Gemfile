@@ -26,6 +26,8 @@ gem "highcharts-rails", "~> 3.0.0"
 #Textacular for searching
 gem 'textacular'
 
+#Pagination
+gem 'will_paginate'
 
 
 gem 'rails', '4.1.4'
@@ -54,4 +56,5 @@ group :test do
   gem 'faker'
   gem 'vcr'
 	gem 'webmock'
+  gem 'simplecov', :require => false
 end

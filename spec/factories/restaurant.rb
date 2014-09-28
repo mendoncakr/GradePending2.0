@@ -9,5 +9,9 @@ FactoryGirl.define do
 		cuisine_code  "3"
 		latitude 40.731969
 		longitude -73.988987
+		
+		factory :restaurant_with_inspection do 
+			
+		end
 	end
 end

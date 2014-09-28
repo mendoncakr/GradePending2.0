@@ -31,7 +31,7 @@ class RestaurantsController < ApplicationController
 	def search
 		@enable_nav = true
 		if params["search"]
-			@result = Restaurant.basic_search(name: params["search"].upcase)
+			@result = Restaurant.basic_search(name: params["search"].upcase).paginate(:page => params[:page], :per_page => 20)
 			if @result.size == 1 
 				redirect_to restaurants_show_path(@result.first.id, format: :html)
 			end

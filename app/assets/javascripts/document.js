@@ -1,18 +1,24 @@
 $(function(){
-  // Google Maps 
-  if (document.getElementById('map-canvas2') !== null) {
-    getAjax('/restaurants/index.json', function(response) {
-      GoogleMaps.initializeSmallMap(response);
-      highCharts.similarlyGraded(response);
-    });
-  }
-
   if (document.getElementById('container') !== null) {
-    getAjax('stats', function(response) {
+    getAjax('/stats', function(response) {
       var gradePending = response.grades['N'] + response.grades[""]
       highCharts.totalGrades(response, gradePending)
       highCharts.commonViolations(response)
     });
+  }
+
+  if (document.getElementById('similar') !== null) {
+    var id = document.URL.split('/').pop()
+    var re = /[.]/
+    if (re.test(id) === true) {
+      id = id.split('.')[0]
+    }
+
+    getAjax('/restaurants/'+id+'.json', function (response) {
+      highCharts.similarlyGraded(response)
+      GoogleMaps.initializeSmallMap(response)
+    })
+    
   }
   // Responsive Nav Links 
   (function () {
@@ -43,16 +49,11 @@ $(function(){
         id: key
         };
       });
-      $('#search').autocomplete({source: sr, change: function (event, ui) {
+      $('#search').autocomplete({source: sr, minLength: 3, change: function (event, ui) {
         that.id = ui.item.id;
       }})
 
     });
-
-    $('.search').on('submit', function (e) {
-     // e.preventDefault()
-     // window.location = "/restaurants/"+ that.id
-   })
   })();
 
   //Assign Cookie after clicking explore. 
