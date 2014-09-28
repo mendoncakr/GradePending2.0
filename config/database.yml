@@ -15,7 +15,7 @@ test:
   username: grade_pending
   password: gotanABorC
   port: 5432
-  database: gptest
+  database: gp1
   pool: 5
   timeout: 5000
 
