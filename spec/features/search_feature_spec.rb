@@ -3,7 +3,8 @@ require 'rails_helper'
 feature "Restaurant Search" do 
 	scenario "User searches for a single restaurant" do 
 		visit "/"
-		fill_in "search", :with => "Gramercy Tavern"
+	  click_button "Explore" unless first('#explore').nil? 	
+    fill_in "search", :with => "Gramercy Tavern"
 		click_button "Search"
 		expect(page).to have_text("Gramercy Tavern") 
 	end

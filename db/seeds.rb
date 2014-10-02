@@ -1,34 +1,34 @@
 # require 'csv'
 
 # inspection_counter = 0
-# restaurant_counter = 0
+restaurant_counter = 0
 
-# file = File.expand_path('../../public/WebExtract2.csv', __FILE__)
-# CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
-# 	row = row.to_hash
-# 	if Chronic.parse(row["INSPDATE"]) >= Chronic.parse("January 1, 2014")
-# 		r = Restaurant.create(
-# 			name: row["DBA"],
-# 			boro: row["BORO"],
-# 			building: row["BUILDING"],
-# 			street: row["STREET"],
-# 			zipcode: row["ZIPCODE"],
-# 			phone: row["PHONE"],
-# 			cuisine_code: row["CUISINECODE"]
-# 			)
-# 		p restaurant_counter += 1
-# 		i = Inspection.create(
-# 			phone: row["PHONE"],
-# 			inspection_date: Chronic.parse(row["INSPDATE"]),
-# 			action: row["ACTION"],
-# 			violation_code: row["VIOLCODE"],
-# 			score: row["SCORE"],
-# 			current_grade: row["CURRENTGRADE"],
-# 			grade_date: Chronic.parse(row["GRADEDATE"]),
-# 			record_date: Chronic.parse(row["RECORDDATE"])
-# 			)
-# 	end
-# end
+file = File.expand_path('../../public/WebExtract3.csv', __FILE__)
+CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
+	row = row.to_hash
+	if Chronic.parse(row["INSPDATE"]) >= Chronic.parse("January 1, 2014")
+		r = Restaurant.create(
+			name: row["DBA"],
+			boro: row["BORO"],
+			building: row["BUILDING"],
+			street: row["STREET"],
+			zipcode: row["ZIPCODE"],
+			phone: row["PHONE"],
+			cuisine_code: row["CUISINECODE"]
+			)
+		p restaurant_counter += 1
+		i = Inspection.create(
+			phone: row["PHONE"],
+			inspection_date: Chronic.parse(row["INSPDATE"]),
+			action: row["ACTION"],
+			violation_code: row["VIOLCODE"],
+			score: row["SCORE"],
+			current_grade: row["CURRENTGRADE"],
+			grade_date: Chronic.parse(row["GRADEDATE"]),
+			record_date: Chronic.parse(row["RECORDDATE"])
+			)
+	end
+end
  																												
 
 # Add inspections to their respective restaurants
@@ -57,34 +57,34 @@
 # 	p r
 # end
 
-filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
-CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
-	Restaurant.where.not(latitude: nil).each do |r|
-		f << ["#{r.id}", "#{r.name.strip}", "#{r.address}", "#{r.latitude}", "#{r.longitude}"]
-	end
-end
+# filename = CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb')
+# CSV.open(File.join(Rails.root, 'db', 'lat_long.csv'), 'wb', :write_headers=> true, :headers=>["id", "name", "latitude", "longitude"]) do |f|
+# 	Restaurant.where.not(latitude: nil).each do |r|
+# 		f << ["#{r.id}", "#{r.name.strip}", "#{r.address}", "#{r.latitude}", "#{r.longitude}"]
+# 	end
+# end
 
 
 
 # ADD Coordinates to DB:
 
-filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
-filename.each do |row|
-	p row.split[1]
-	p rest = Restaurant.find_by(phone: row.split[1])
-	if rest
-		rest.update(latitude: row.split[3], longitude: row.split[5])
-		rest.save
-	else
-		next
-	end
-	# if rest.phone == nil
-	# 	puts "*"*100
-	# else
-	# 	p rest.id
-	# 	rest.update(latitude: row.split[3], longitude: row.split[5])
-	# end
-end
+# filename = File.open(File.join(Rails.root, 'db', 'coords.csv'))
+# filename.each do |row|
+# 	p row.split[1]
+# 	p rest = Restaurant.find_by(phone: row.split[1])
+# 	if rest
+# 		rest.update(latitude: row.split[3], longitude: row.split[5])
+# 		rest.save
+# 	else
+# 		next
+# 	end
+# 	# if rest.phone == nil
+# 	# 	puts "*"*100
+# 	# else
+# 	# 	p rest.id
+# 	# 	rest.update(latitude: row.split[3], longitude: row.split[5])
+# 	# end
+# end
 
 
 

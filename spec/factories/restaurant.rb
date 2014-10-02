@@ -5,13 +5,12 @@ FactoryGirl.define do
 		building "42"
 		street "EAST   20 STREET                                  "
 		zipcode "10003"
-		phone "21244770777"
 		cuisine_code  "3"
 		latitude 40.731969
 		longitude -73.988987
 		
 		factory :restaurant_with_inspection do 
-			
+		  after(:build) {|restaurant| restaurant.inspections << create(:inspection)}	
 		end
 	end
 end

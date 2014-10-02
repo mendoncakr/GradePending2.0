@@ -44,4 +44,4 @@ coverage
 .env
 
 #Ignore db
-/config/database.yml
+config/database.yml

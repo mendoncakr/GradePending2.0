@@ -2,7 +2,7 @@ class Restaurant < ActiveRecord::Base
   has_many :inspections
   has_many :favorite_restaurants
   has_many :favorited_by, through: :favorite_restaurants, source: :user
-
+  attr_accessor :borough 
   validates_uniqueness_of :phone
   geocoded_by :address
 
