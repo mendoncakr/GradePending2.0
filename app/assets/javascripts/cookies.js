@@ -30,9 +30,3 @@ var sessionChecker = function () {
 	}
 }
 
-$(function () {
-	sessionChecker();
-	$('#explore').click(function () {
-		document.cookie = "explore=false"
-	})
-});

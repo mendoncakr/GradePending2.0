@@ -69,3 +69,14 @@ task :dyno_ping do
   end
 end
 
+task :new_csv do 
+	file = File.expand_path('../../../public/WebExtract3.csv', __FILE__)
+	CSV.parse(File.open(file, 'r:iso-8859-1:utf-8'){|f| f.read}, col_sep: ',', headers: true) do |row|
+		CSV.open(File.join(Rails.root, 'db', 'new_csv.csv'), 'wb') do |f|
+			if Chronic.parse(row["INSPDATE"]) >= Chronic.parse("January 1, 2014")
+				f << row
+			end
+		end
+	end
+end
+
