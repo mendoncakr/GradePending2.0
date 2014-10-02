@@ -1,8 +1,8 @@
 development:
   adapter: postgresql
-  host: grade-pending.coe8ua7gofeg.us-west-2.rds.amazonaws.com
+  host: gpdb2.coe8ua7gofeg.us-west-2.rds.amazonaws.com  
   username: grade_pending
-  password: gotanABorC
+  password: hiJackThis
   port: 5432
   database: gp1
   pool: 5
@@ -11,9 +11,9 @@ development:
 
 test:
   adapter: postgresql
-  host: grade-pending.coe8ua7gofeg.us-west-2.rds.amazonaws.com
+  host: gpdb2.coe8ua7gofeg.us-west-2.rds.amazonaws.com   
   username: grade_pending
-  password: gotanABorC
+  password: hiJackThis
   port: 5432
   database: gp1
   pool: 5
