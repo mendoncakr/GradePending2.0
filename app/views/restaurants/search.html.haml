@@ -1,0 +1,10 @@
+%h1
+	Search Results: 
+.search-results
+	- @result.each do |result|
+		= link_to(result.name.titleize , "/restaurants/#{result.id}")
+		%br/
+		= result.address
+		%br/
+
+	= will_paginate @result

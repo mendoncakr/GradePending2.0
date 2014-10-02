@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
+#Postgresql
 gem 'pg'
 
 #Location Finding
 gem "geocoder"
-
+gem 'geokit-rails'
 
 #Chronic for Date Parsing
 gem 'chronic'
-gem 'underscore-rails'
 
 #Jquery UI
 gem 'jquery-ui-rails'
@@ -17,20 +17,18 @@ gem 'jquery-ui-rails'
 #Use Thin instead of WEBrick
 gem 'thin'
 
-#Use dotenv for dev/production
-gem 'dotenv-rails', :groups => [:development, :test]
-
-#YELP gem
-gem 'yelp', require: 'yelp'
-
 #HAML
 gem 'haml'
 
 #HighCharts
 gem "highcharts-rails", "~> 3.0.0"
 
-#geokit
-gem 'geokit-rails'
+#Textacular for searching
+gem 'textacular'
+
+#Pagination
+gem 'will_paginate'
+
 
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
@@ -41,10 +39,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
+
 gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'dotenv-rails'
 end
 
 
@@ -56,4 +56,6 @@ group :test do
   gem 'faker'
   gem 'vcr'
 	gem 'webmock'
+  gem 'simplecov', :require => false
+  gem 'database_cleaner'
 end

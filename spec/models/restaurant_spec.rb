@@ -3,7 +3,9 @@ require 'shoulda/matchers'
 
 RSpec.describe Restaurant, :type => :model do
 	let(:restaurant) {FactoryGirl.create :restaurant}
+	let(:inspection) {FactoryGirl.create :inspection}
 	it { should validate_uniqueness_of :phone }
+  it { should have_many(:inspections) }
 	it "creates a valid restaurant" do 
 		expect(restaurant).to be_valid
 	end
@@ -23,35 +25,21 @@ RSpec.describe Restaurant, :type => :model do
 		new_restaurant = restaurant
 		expect(new_restaurant.name).to eq "Joe's Pizza & Shakes"
 	end
-
-	context '#Yelp'
-	it "retrieves the yelp business id from Yelp search API" do
-			# restaurant =  FactoryGirl.build(:restaurant)
-			VCR.use_cassette 'model/yelp_search_api' do
-				response = restaurant.yelp_biz_id 
-				expect(response).to eq("gramercy-tavern-new-york")
-			end
-		end
-
-		it "returns an excerpt of the top review" do
-      VCR.use_cassette 'model/yelp_business_api' do
-  			response = restaurant.top_yelp_review
-  			expect(response).to eq("Pretty expensive, but worth it. Little bit of an older crowd, but worth it. \n\nI've only eaten in The tavern area with colleagues, so haven't tried the fixed...")
-		end
+  
+  context '#borough'
+  
+  it "assigns the appropriate borough" do
+    restaurant = FactoryGirl.build(:restaurant, boro: "3")
+    expect(restaurant.borough).to eq "Brooklyn"
   end
 
-		it "returns the user for the yelp review " do
-      VCR.use_cassette 'model/yelp_business_api' do
-			 response = restaurant.yelp_review_user
-			 expect(response).to eq("John S.")
-		  end
-    end
-
-		it "returns the url for the owner of the reviews profile picture" do
-      VCR.use_cassette 'model/yelp_business_api' do
-			 response = restaurant.yelp_review_user_image
-			 expect(response).to eq("http://s3-media4.fl.yelpcdn.com/photo/yFUKeS--E8CkErS-1dryoQ/ms.jpg" )
-		  end
-    end
-
+	context '#inspections' 
+	it "assigns the correct violation based on the inspection code" do 
+		@restaurant = FactoryGirl.build(:restaurant_with_inspection, phone: "9175551234")
+    inspection = FactoryGirl.build(:inspection, phone: "99999")
+    @restaurant.inspections << inspection
+	  @restaurant.inspections.reload	
+		expect(@restaurant.last_violations).to eq "Hot food not held at or above 140°F."
 	end
+
+end
