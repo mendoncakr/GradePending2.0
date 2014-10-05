@@ -18,6 +18,7 @@ Visit us at http://grade-pending.herokuapp.com/.
 * Verify that latest dataset is within your public folder to begin
 * `rake db:seed`
 * `rake geocode` (make sure to configure geocoder in your initializers with geocoding API-key of your choice (i.e. Google)
+* `rake add_current_grade`
 * `rake fix_names`
 * Find an [issue](https://github.com/mendoncakr/GradePending2.0/issues) and or add a new feature!
 * Send pull request!
