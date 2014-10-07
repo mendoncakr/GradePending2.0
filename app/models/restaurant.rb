@@ -24,8 +24,8 @@ class Restaurant < ActiveRecord::Base
 
   def save_coords
   	coords = Geocoder.coordinates(self.address)
-  	self.latitude = coords[0]
-  	self.longitude = coords[1]
+  	self.latitude = coords.first
+  	self.longitude = coords.last
   	self.save
   end
 
@@ -45,7 +45,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def last_violations
-    Inspection.joins(:restaurant).where("inspections.restaurant_id = ?", self.id).order(inspection_date: :desc).map{|i| Inspection::VIOLATION_CODES[i.violation_code]}.compact!
+    Inspection.joins(:restaurant).where("inspections.restaurant_id = ?", self.id).order(inspection_date: :desc).map {|i| Inspection::VIOLATION_CODES[i.violation_code]}.compact!
   end
 
 
