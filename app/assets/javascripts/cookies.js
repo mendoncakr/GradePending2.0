@@ -3,14 +3,14 @@ var MapView = {
 		return $('.map_and_search').fadeIn('slow');
 	}, 
 	hideElement : function (element) {
-		return element.hide()
+		return element.hide();
 	}
 }
 
 var sessionChecker = function () {
 	//TODO FIX ME
-	var explore = document.cookie.split(';').pop()
-	var bool = explore.split('=').pop()
+	var explore = document.cookie.split(';').pop();
+	var bool = explore.split('=').pop();
 
 	if (bool === "false") {
 		MapView.showMap();
@@ -18,13 +18,13 @@ var sessionChecker = function () {
 		if (document.getElementById('map-canvas') !== null) {
 			GoogleMaps.initializeLargeMap();
 		}
-		MapView.hideElement($('#explore'))
+		MapView.hideElement($('#explore'));
 	} else {
-		MapView.hideElement($('.map_and_search'))
+		MapView.hideElement($('.map_and_search'));
 
 		$("#explore").on("click", function(){
 			MapView.showMap();
-			GoogleMaps.initializeLargeMap()
+			GoogleMaps.initializeLargeMap();
 			$(this).hide();
 		})
 	}

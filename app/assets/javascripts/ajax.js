@@ -1,7 +1,7 @@
 function getAjax (route, callback) {
   $.get(route)
   .done(function (data) {
-    callback (data)
+    callback (data);
   });
 }
 var addFavorite = function(id) {
